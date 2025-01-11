@@ -229,9 +229,9 @@
                   </div>
                 </div>
               </div>
-              <form action="phpcontact/ajouter.php" method="post">
               <div class="row justify-content-lg-between">
                 <div class="col-lg-6 mb-lg-0 mb-4">
+                <form action="phpcontact/ajouter.php" method="post">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
@@ -260,6 +260,7 @@
                       </button>
                     </div>
                   </div>
+                </form>
                 </div>
                 <div class="col-lg-6">
                   <div class="ps-lg-4">
@@ -319,7 +320,7 @@
                   </div>
                 </div>
               </div>
-              </form>
+              
             </div>
           </div>
         </section>
