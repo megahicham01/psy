@@ -74,7 +74,7 @@
                       while($starjdid = mysqli_fetch_array($dirlordre)){
                     ?>
                     <li class="anav">
-                      <a class="nav-link" aria-current="page" href="<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
+                      <a class="nav-link navbar-text" aria-current="page" href="<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
                     </li>
                     <?php
                     }
@@ -802,7 +802,7 @@
                   </div>
                 </div>
                 <div class="office_hour_list bg_primary_light mt-5">
-                  <h3 class="area_title">Working Time</h3>
+                  <h3 class="area_title">Heures de travail</h3>
                   <ul class="unordered_list_block">
                     <li>
                       <span>Lundi - Vendredi:</span>
