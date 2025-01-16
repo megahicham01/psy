@@ -250,11 +250,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/professional_img_1-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <img src="assets/images/team/1.jpg" alt="Talking Minds - Psychotherapist Site Template">
                   </div>
                   <div class="team_memder_info text-center">
                     <h3 class="team_memder_designation">Psychologue de la famille, Psy. D</h3>
-                    <h4 class="team_memder_name">Hicham ZGHOUDI</h4>
+                    <h4 class="team_memder_name">Mr. Hicham ZGHOUDI</h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>
@@ -267,11 +267,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/professional_img_2-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <img src="assets/images/team/2.jpg" alt="Talking Minds - Psychotherapist Site Template">
                   </div>
                   <div class="team_memder_info text-center">
                     <h3 class="team_memder_designation">Psychologue clinicien, Psy. D</h3>
-                    <h4 class="team_memder_name">Abdelwahed</h4>
+                    <h4 class="team_memder_name">Mr. Abdelwahed MOUDEN</h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>
@@ -284,11 +284,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/professional_img_3-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <img src="assets/images/team/6.jpg" alt="Talking Minds - Psychotherapist Site Template">
                   </div>
                   <div class="team_memder_info text-center">
                     <h3 class="team_memder_designation">Psychologue praticien</h3>
-                    <h4 class="team_memder_name">Khaled Powers</h4>
+                    <h4 class="team_memder_name">Ms. Ilham ALAMI</h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>
@@ -301,11 +301,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/professional_img_4-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <img src="assets/images/team/4.jpg" alt="Talking Minds - Psychotherapist Site Template">
                   </div>
                   <div class="team_memder_info text-center">
                     <h3 class="team_memder_designation">psychologue praticien, Psy. D</h3>
-                    <h4 class="team_memder_name">Mohammed Johnston</h4>
+                    <h4 class="team_memder_name">Ms. Sara BOURKADI</h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>
@@ -318,11 +318,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/professional_img_5-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <img src="assets/images/team/5.jpg" alt="Talking Minds - Psychotherapist Site Template">
                   </div>
                   <div class="team_memder_info text-center">
                     <h3 class="team_memder_designation">psychologue clinicien, Psy. D</h3>
-                    <h4 class="team_memder_name">Asmae Floyd</h4>
+                    <h4 class="team_memder_name">Ms. Asmae Floyd</h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>
@@ -335,7 +335,7 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/professional_img_6-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <img src="assets/images/team/3.jpg" alt="Talking Minds - Psychotherapist Site Template">
                   </div>
                   <div class="team_memder_info text-center">
                     <h3 class="team_memder_designation">pédopsychologue</h3>

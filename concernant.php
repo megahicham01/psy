@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>About Us - MindCare Clinique – Psychotherapist</title>
+    <title>Concernant - MindCare Clinique – Psychotherapist</title>
     <link rel="shortcut icon" href="assets/images/site_logo/Logo.png">
 
     <!-- Fraimwork - CSS Include -->
@@ -98,7 +98,7 @@
                     <span class="btn_icon">
                       <i class="fa-solid "><img src="assets/images/calendrier.png" alt="calendrier" data-bs-toggle="modal" data-bs-target="#had-div" style="height: 2rem;" class="images"></i>
                     </span>
-                    <span class="btn_text" data-bs-toggle="modal" data-bs-target="#had-div">Get your Consultation</span>
+                    <span class="btn_text" data-bs-toggle="modal" data-bs-target="#had-div">Obtenez votre consultation</span>
                   </a>
                                 
                 </li>
@@ -114,7 +114,7 @@
         <div class="modal-dialog modal-lg ">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5 mx-auto text-sucess" id="exampleModalLabel">Get your Consultation</h1>
+              <h1 class="modal-title fs-5 mx-auto text-sucess" id="exampleModalLabel">Obtenez votre consultation</h1>
             </div>
             <div class="modal-body">
             <form action="phpconsult/ajouter.php" method="POST" >
@@ -217,10 +217,10 @@
             <div class="row align-items-center justify-content-lg-between">
               <div class="col-lg-6 order-lg-last">
                 <div class="image_widget">
-                  <img src="assets/images/about/about_image_1-min.jpg" alt="About Image - Talking Minds – Psychotherapist Site Template">
+                  <img src="assets/images/about/1.jpg" alt="About Image - Talking Minds – Psychotherapist Site Template">
                   <div class="image_shape bg_primary_light"></div>
                   <div class="about_video_icon">
-                    <a class="video_play_btn popup_video" href="https://www.youtube.com/watch?v=7e90gBu4pas">
+                    <a class="video_play_btn popup_video" href="https://www.youtube.com/watch?v=61dvG2Tf6uY">
                       <i class="fa-duotone fa-play"></i>
                     </a>
                   </div>
@@ -230,10 +230,10 @@
                 <div class="about_content">
                   <div class="section_heading mb-4">
                     <h2 class="section_heading_text">
-                      <mark>Dr. Merry Stone</mark> — Licensed Mental Health Counselor, Psychotherapist  
+                      <mark>Dr. Hicham ZGHOUDI</mark> — Conseiller en santé mentale, psychothérapeute  
                     </h2>
                     <p class="section_heading_description mb-0 ">
-                      It is a long established fact that a reader will be distracted by the readable content of a page. Sed ut perspiciatis unde omnis iste natus error.
+                    Je vous offre un accompagnement personnalisé pour votre bien-être mental, avec des consultations adaptées et un traitement si nécessaire.
                     </p>
                   </div>
                   <div class="row">
@@ -243,19 +243,19 @@
                           <span class="info_icon">
                             <i class="fa-light fa-circle-check"></i>
                           </span>
-                          <span class="info_text">Personal Consultations</span>
+                          <span class="info_text">Consultations Personnelles</span>
                         </li>
                         <li>
                           <span class="info_icon">
                             <i class="fa-light fa-circle-check"></i>
                           </span>
-                          <span class="info_text">Group Therapy</span>
+                          <span class="info_text">Séance de thérapie de groupe</span>
                         </li>
                         <li>
                           <span class="info_icon">
                             <i class="fa-light fa-circle-check"></i>
                           </span>
-                          <span class="info_text">Online Therapy</span>
+                          <span class="info_text">Thérapie en ligne</span>
                         </li>
                       </ul>
                     </div>
@@ -265,13 +265,13 @@
                           <span class="info_icon">
                             <i class="fa-light fa-circle-check"></i>
                           </span>
-                          <span class="info_text">Unique technique</span>
+                          <span class="info_text">Technique unique</span>
                         </li>
                         <li>
                           <span class="info_icon">
                             <i class="fa-light fa-circle-check"></i>
                           </span>
-                          <span class="info_text">Couple Problem</span>
+                          <span class="info_text">Problème de couple</span>
                         </li>
                       </ul>
                     </div>
@@ -279,7 +279,7 @@
                   <div class="btn_wrap pb-0">
                     <a class="btn btn-primary" href="about.html">
                       <span class="btn_text" data-text="Learn More">
-                        Learn More
+                      En savoir plus
                       </span>
                       <span class="btn_icon">
                         <i class="fa-solid fa-arrow-up-right"></i>
@@ -306,9 +306,9 @@
                       <span class="odometer" data-count="20">0</span>
                       <span>+</span>
                     </div>
-                    <h3 class="counter_title">Years of experience</h3>
+                    <h3 class="counter_title">années d'expérience</h3>
                     <p class="counter_description mb-0">
-                      In psychology
+                    en psychologie
                     </p>
                   </div>
                 </div>
@@ -318,9 +318,9 @@
                       <span class="odometer" data-count="840">0</span>
                       <span>+</span>
                     </div>
-                    <h3 class="counter_title">Patients received help</h3>
+                    <h3 class="counter_title">Les patients ont reçu de l’aide</h3>
                     <p class="counter_description mb-0">
-                      This year
+                    Cette année
                     </p>
                   </div>
                 </div>
@@ -330,9 +330,9 @@
                       <span class="odometer" data-count="98">0</span>
                       <span>%</span>
                     </div>
-                    <h3 class="counter_title">Positive Feedback</h3>
+                    <h3 class="counter_title">Réactions positives</h3>
                     <p class="counter_description mb-0">
-                      From our doctors
+                    De nos médecins
                     </p>
                   </div>
                 </div>
@@ -348,40 +348,38 @@
         <section class="certificate_section section_space_lg pb-0">
           <div class="container">
             <div class="section_heading text-center">
-              <h2 class="section_heading_text">Certificates</h2>
-              <p class="section_heading_description mb-0 ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry
-              </p>
+              <h2 class="section_heading_text">Certificats</h2>
+              
             </div>
             <div class="certificates_carousel row zoom-gallery" data-slick='{"arrows": false}'>
               <div class="col- carousel_item">
                 <a class="certificate_image popup_image" data-cursor-text="Scroll" href="assets/images/certificate/certificate_image_1-min.jpg">
-                  <img src="assets/images/certificate/certificate_image_1-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                  <img src="assets/images/certificate/1.jpg" alt="Talking Minds - Psychotherapist Site Template">
                 </a>
               </div>
               <div class="col- carousel_item">
                 <a class="certificate_image popup_image" data-cursor-text="Scroll" href="assets/images/certificate/certificate_image_2-min.jpg">
-                  <img src="assets/images/certificate/certificate_image_2-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                  <img src="assets/images/certificate/2.jpg" alt="Talking Minds - Psychotherapist Site Template">
                 </a>
               </div>
               <div class="col- carousel_item">
                 <a class="certificate_image popup_image" data-cursor-text="Scroll" href="assets/images/certificate/certificate_image_3-min.jpg">
-                  <img src="assets/images/certificate/certificate_image_3-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                  <img src="assets/images/certificate/3.jpg" alt="Talking Minds - Psychotherapist Site Template">
                 </a>
               </div>
               <div class="col- carousel_item">
                 <a class="certificate_image popup_image" data-cursor-text="Scroll" href="assets/images/certificate/certificate_image_1-min.jpg">
-                  <img src="assets/images/certificate/certificate_image_1-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                  <img src="assets/images/certificate/1.jpg" alt="Talking Minds - Psychotherapist Site Template">
                 </a>
               </div>
               <div class="col- carousel_item">
                 <a class="certificate_image popup_image" data-cursor-text="Scroll" href="assets/images/certificate/certificate_image_2-min.jpg">
-                  <img src="assets/images/certificate/certificate_image_2-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                  <img src="assets/images/certificate/2.jpg" alt="Talking Minds - Psychotherapist Site Template">
                 </a>
               </div>
               <div class="col- carousel_item">
                 <a class="certificate_image popup_image" data-cursor-text="Scroll" href="assets/images/certificate/certificate_image_3-min.jpg">
-                  <img src="assets/images/certificate/certificate_image_3-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                  <img src="assets/images/certificate/3.jpg" alt="Talking Minds - Psychotherapist Site Template">
                 </a>
               </div>
             </div>
@@ -395,60 +393,47 @@
         <section class="work_process_section section_space_lg">
           <div class="container">
             <div class="row align-items-center">
-              <div class="col-lg-6 order-lg-last">
-                <div class="images_group_widget">
-                  <ul class="unordered_list">
-                    <li>
-                      <img src="assets/images/about/about_image_6-min.png" alt="Talking Minds - Psychotherapist Site Template">
-                      <img src="assets/images/about/about_image_7-min.png" alt="Talking Minds - Psychotherapist Site Template">
-                    </li>
-                    <li>
-                      <img src="assets/images/about/about_image_8-min.png" alt="Talking Minds - Psychotherapist Site Template">
-                      <img src="assets/images/about/about_image_9-min.png" alt="Talking Minds - Psychotherapist Site Template">
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
+              
+              <div >
                 <div class="section_heading">
                   <h2 class="section_heading_text mb-0">
-                    Stages of consultation with patients on mental health
+                  Étapes de la consultation avec les patients sur la santé mentale
                   </h2>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6">
                     <div class="work_process_item">
                       <div class="serial_number">01</div>
-                      <h3 class="item_title">Request on the site</h3>
+                      <h3 class="item_title">📝 demande sur le site</h3>
                       <p class="mb-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      Le patient soumet ses informations et besoins sur le site.
                       </p>
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
                     <div class="work_process_item">
                       <div class="serial_number">02</div>
-                      <h3 class="item_title">Timing</h3>
+                      <h3 class="item_title">📅 Calendrier</h3>
                       <p class="mb-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      Un rendez-vous est fixé selon les disponibilités.
                       </p>
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
                     <div class="work_process_item">
                       <div class="serial_number">03</div>
-                      <h3 class="item_title">Conducting a session</h3>
+                      <h3 class="item_title">💬 Diriger une séance</h3>
                       <p class="mb-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      Le professionnel évalue les besoins et propose une intervention.
                       </p>
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
                     <div class="work_process_item">
                       <div class="serial_number">04</div>
-                      <h3 class="item_title">Satisfied review</h3>
+                      <h3 class="item_title">✅ Évaluation satisfaisante</h3>
                       <p class="mb-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      Retour du patient pour mesurer sa satisfaction et adapter le suivi.
                       </p>
                     </div>
                   </div>
@@ -460,264 +445,61 @@
         <!-- Work Process Section - End
         ================================================== -->
 
-        <!-- Service Section - Start
+       
+
+        
+
+        <!-- Contact Section - Start
         ================================================== -->
-        <section class="service_section section_space_lg bg_primary_light">
+        <section class="contact_section section_space_lg" style="padding-top: 10px;">
           <div class="container">
-            <div class="section_heading text-center">
-              <h2 class="section_heading_text">What I'm Offer</h2>
-              <p class="section_heading_description mb-0 ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry
-              </p>
-            </div>
-
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_brain.svg" alt="Brain Icon - Talking Minds – Psychotherapist Site Template">
+            <div class="conatiner_box">
+              <div class="section_heading mb-4">
+                <div class="row justify-content-lg-between">
+                  <div >
+                    <h2 class="section_heading_text mb-0">
+                    Prenez soin de votre santé mentale maintenant
+                    </h2>
                   </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Depression Therapy</h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremqe laudantium.
-                    </p>
-                    <a class="btn-link" href="service_details.html">
-                      <span class="btn_text">More Info</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
+                  
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_head_double.svg" alt="Head Double Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Couples Counseling</h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremqe laudantium.
-                    </p>
-                    <a class="btn-link" href="service_details.html">
-                      <span class="btn_text">More Info</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_head.svg" alt="Brain Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Relationships</h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremqe laudantium.
-                    </p>
-                    <a class="btn-link" href="service_details.html">
-                      <span class="btn_text">More Info</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_head_plus.svg" alt="Brain Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Anxiety Disorder</h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremqe laudantium.
-                    </p>
-                    <a class="btn-link" href="service_details.html">
-                      <span class="btn_text">More Info</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_head_children.svg" alt="Head Double Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Children Therapy</h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremqe laudantium.
-                    </p>
-                    <a class="btn-link" href="service_details.html">
-                      <span class="btn_text">More Info</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_brain_plus.svg" alt="Brain Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Individual Therapy</h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremqe laudantium.
-                    </p>
-                    <a class="btn-link" href="service_details.html">
-                      <span class="btn_text">More Info</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="btn_wrap pb-0 text-center">
-              <a class="btn btn-primary" href="service.html">
-                <span class="btn_text" data-text="All Programs">
-                  All Programs
-                </span>
-                <span class="btn_icon">
-                  <i class="fa-solid fa-arrow-up-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </section>
-        <!-- Service Section - End
-        ================================================== -->
-
-        <!-- Gallery Section - Start
-        ================================================== -->
-        <section class="gallery_section section_space_lg pb-0">
-          <div class="container">
-            <div class="section_heading text-center">
-              <h2 class="section_heading_text">Photos from our Classes</h2>
-              <p class="section_heading_description mb-0">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry
-              </p>
-            </div>
-
-            <div class="zoom-gallery row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <a class="gallery_item popup_image" href="assets/images/gallery/gallery_image_1-min.jpg">
-                  <img src="assets/images/gallery/gallery_image_1-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <a class="gallery_item popup_image" href="assets/images/gallery/gallery_image_2-min.jpg">
-                  <img src="assets/images/gallery/gallery_image_2-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <a class="gallery_item popup_image" href="assets/images/gallery/gallery_image_3-min.jpg">
-                  <img src="assets/images/gallery/gallery_image_3-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <a class="gallery_item popup_image" href="assets/images/gallery/gallery_image_4-min.jpg">
-                  <img src="assets/images/gallery/gallery_image_4-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <a class="gallery_item popup_image" href="assets/images/gallery/gallery_image_5-min.jpg">
-                  <img src="assets/images/gallery/gallery_image_5-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <a class="gallery_item popup_image" href="assets/images/gallery/gallery_image_6-min.jpg">
-                  <img src="assets/images/gallery/gallery_image_6-min.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                </a>
-              </div>
-            </div>
-
-            <div class="btn_wrap pb-0 text-center">
-              <a class="btn btn-primary" href="gallery.html">
-                <span class="btn_text" data-text="See More Photos">
-                  See More Photos
-                </span>
-                <span class="btn_icon">
-                  <i class="fa-solid fa-arrow-up-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </section>
-        <!-- Gallery Section - End
-        ================================================== -->
-
-        <!-- Consultation Section - Start
-        ================================================== -->
-        <section class="consultation_section section_space_lg">
-          <div class="container">
-            <div class="consultation_form bg_primary_light decoration_wrapper">
-              <div class="section_heading text-center">
-                <h2 class="section_heading_text mb-0">
-                  <span class="d-md-block">Get your first free</span> online consultation 
-                </h2>
-              </div>
-              <div class="row justify-content-center">
-                <div class="col-lg-7">
+              <div class="row justify-content-lg-between">
+                <div class="mb-lg-0 mb-4">
+                <form action="phpcontact/ajouter.php" method="post">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="input_name">Name</label>
-                        <input id="input_name" class="form-control" type="text" name="name" placeholder="Your Name">
+                        <label for="input_name">Nom</label>
+                        <input id="input_name" class="form-control" type="text" name="name" placeholder="Votre nom">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="input_phone">Phone</label>
-                        <input id="input_phone" class="form-control" type="tel" name="phone" placeholder="Mobile phone number">
+                        <label for="input_phone">Téléphone</label>
+                        <input id="input_phone" class="form-control" type="tel" name="phone" placeholder="votre numéro de téléphone">
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="select_therapy">Section</label>
-                        <select id="select_therapy" class="form-select" aria-label="Therapy Select Options" name="therapy1">
-                            <option selected>Sélectionner la thérapie</option>
-                            <option value="Depression Therapy">Traitement de la dépression</option>
-                            <option value="Couples Counseling">Thérapie de couples</option>
-                            <option value="Relationships">Relationships</option>
-                            <option value="Anxiety disorder">Trouble anxieux</option>
-                            <option value="Child therapy">Thérapie des enfants</option>
-                            <option value="Individual therapy">Thérapie individuelle</option>
-                          </select>
+                    <div class="col-12">
+                      <div class="form-group mb-4">
+                        <label for="input_message">Message</label>
+                        <textarea id="input_message" class="form-control col-6" name="comment" placeholder="veuillez Saisissez votre message ici, jusqu'à 255 caractères." maxlength="255" style="width:33rem"></textarea>
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="input_calendar">Phone</label>
-                        <input id="input_calendar" class="form-control" type="date" name="date">
-                      </div>
+                      <button type="submit" class="btn btn-primary" name="submit" >
+                        <span class="btn_text" data-text="Envoyer">
+                        Envoyer
+                        </span>
+                        <span class="btn_icon">
+                          <i class="fa-solid fa-arrow-up-right"></i>
+                        </span>
+                      </button>
                     </div>
                   </div>
-                  <div class="btn_wrap pb-0 text-center">
-                    <button type="submit" class="btn btn-primary">
-                      <span class="btn_text" data-text="Get A Consultation">
-                      Obtenir Vote consultation
-                      </span>
-                      <span class="btn_icon">
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </button>
-                  </div>
+                </form>
                 </div>
-              </div>
-              <div class="decoration_item shape_leaf_1">
-                <img src="assets/images/shapes/shape_leaf_right_top.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
-              </div>
-              <div class="decoration_item shape_leaf_2">
-                <img src="assets/images/shapes/shape_leaf_left_bottom.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
-              </div>
-            </div>
-          </div>
+                
         </section>
-        <!-- Consultation Section - End
+        <!-- Contact Section - End
         ================================================== -->
 
       </main>
