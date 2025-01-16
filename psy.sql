@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 10 jan. 2025 à 22:43
+-- Généré le : jeu. 16 jan. 2025 à 17:36
 -- Version du serveur :  10.4.16-MariaDB
 -- Version de PHP : 7.4.12
 
@@ -40,7 +40,9 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`id`, `nom`, `phone`, `message`) VALUES
 (3, 'attempt3', 608780210, '1ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd255'),
-(5, '', 0, 'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff');
+(6, 'med', 98999, 'mmmmmmmm'),
+(7, 'juuuu', 608880210, 'ddddddddddddddddddddddddddddd'),
+(8, 'Ahmed', 708039910, '123456789---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------255');
 
 -- --------------------------------------------------------
 
@@ -53,7 +55,7 @@ CREATE TABLE `getconsultation` (
   `name` varchar(30) NOT NULL,
   `phone` int(10) NOT NULL,
   `date` date NOT NULL,
-  `therapy` varchar(20) NOT NULL
+  `therapy` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -61,14 +63,14 @@ CREATE TABLE `getconsultation` (
 --
 
 INSERT INTO `getconsultation` (`id`, `name`, `phone`, `date`, `therapy`) VALUES
-(12, 'mama', 2147483647, '2025-01-10', 'Relationships'),
-(15, 'ilham', 2147483647, '2025-01-24', 'Depression Therapy'),
-(16, 'zghoudi', 708039910, '2025-02-09', 'Depression Therapy'),
-(17, '', 0, '0000-00-00', 'Sélectionner la thér'),
-(18, '', 0, '0000-00-00', ''),
-(19, 's', 0, '0000-00-00', 'Sélectionner la thér'),
-(20, '', 0, '0000-00-00', 'Sélectionner la thér'),
-(21, '', 0, '0000-00-00', 'Sélectionner la thér');
+(12, 'abdelwahed', 2147483647, '2025-01-10', 'Traitement de la dépression'),
+(15, 'habib', 2147483647, '2025-01-24', 'Thérapie des enfants'),
+(16, 'khaled', 708039910, '2025-02-09', 'Trouble anxieux'),
+(22, 'najlae', 444444, '2025-02-08', 'Relationships'),
+(23, 'mohamed motivation', 2147483647, '2025-02-01', 'Traitement de la dépression'),
+(24, 'aya', 2147483647, '2025-01-26', 'Trouble anxieux'),
+(25, 'asmae', 2147483647, '2025-01-18', 'Thérapie individuelle'),
+(26, 'ilham', 2147483647, '2025-02-09', 'Child therapy');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,6 @@ CREATE TABLE `navbar` (
 INSERT INTO `navbar` (`id`, `nav`, `refer`) VALUES
 (23, 'Acceuil', 'index.php'),
 (24, 'Contact', 'contact.php'),
-(25, 'Equipe', 'team.php'),
 (26, 'Gallery', 'gallery.php'),
 (27, 'Service', 'service.php');
 
@@ -123,19 +124,19 @@ ALTER TABLE `navbar`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `getconsultation`
 --
 ALTER TABLE `getconsultation`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `navbar`
 --
 ALTER TABLE `navbar`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
