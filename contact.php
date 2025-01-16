@@ -330,8 +330,7 @@
         <!-- Google Map - Start
         ================================================== -->
         <div class="gmap_canvas contact_map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26593.012840987773!2d-7.575401532447857!3d33.576061934334774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd0d156d336b%3A0x6a868fc61d146fdf!2sDR%20ZINEB%20EL%20RHAZOUI!5e0!3m2!1sfr!2sma!4v1734566518721!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1738687.6692768529!2d-10.471268543750005!3d31.664657100000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafedd8b09584ed%3A0x16df0bb14e31754b!2sPsychologue%20Hicham%20lakrazbi!5e0!3m2!1sfr!2sma!4v1737051678340!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
         <!-- Google Map - End
         ================================================== -->
 
