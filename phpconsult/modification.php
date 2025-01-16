@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>edit</title>
+    <title>edit consultation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
+    <link rel="shortcut icon" href="../assets/images/icons/iconconsultation.png" type="image/x-png">
+</head>
   <body>
     <h1 class="text-center m-2 text-warning">Modification de la Table du consultation</h1>
     <hr>
@@ -35,7 +36,15 @@
                 </div>
                 <div class="form-group col-6">
                     <label for="" class="form-label fw-bold text-primary">Section de Thérapie :</label>
-                    <input type="text" class="form-control" name="terapyedit"  value="<?php echo $row['therapy'] ?>">
+                    <select class="form-select"  name="terapyedit"  >
+                            <option selected><?php echo $row['therapy'] ?></option>
+                            <option value="Traitement de la dépression">Traitement de la dépression</option>
+                            <option value="Thérapie de couples">Thérapie de couples</option>
+                            <option value="Relationships">Relationships</option>
+                            <option value="Trouble anxieux">Trouble anxieux</option>
+                            <option value="Thérapie des enfants">Thérapie des enfants</option>
+                            <option value="Thérapie individuelle">Thérapie individuelle</option>
+                    </select>
                 </div>
                 
 

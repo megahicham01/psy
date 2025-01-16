@@ -312,10 +312,10 @@
                     </div>
                     <h3 class="social_title">Suivez-nous:</h3>
                     <ul class="social_links unordered_list">
-                      <li><a class="bg-primary" href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
-                      <li><a class="bg-primary" href="#!"><i class="fa-brands fa-instagram"></i></a></li>
-                      <li><a class="bg-primary" href="#!"><i class="fa-brands fa-twitter"></i></a></li>
-                      <li><a class="bg-primary" href="#!"><i class="fa-brands fa-whatsapp"></i></a></li>
+                      <li><a class="iconcontact" href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
+                      <li><a class="iconcontact" href="#!"><i class="fa-brands fa-instagram"></i></a></li>
+                      <li><a class="iconcontact" href="#!"><i class="fa-brands fa-twitter"></i></a></li>
+                      <li><a class="iconcontact" href="#!"><i class="fa-brands fa-whatsapp"></i></a></li>
                     </ul>
                   </div>
                 </div>

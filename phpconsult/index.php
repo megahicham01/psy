@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin_Page </title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Admin_consultation </title>
+    <link rel="shortcut icon" href="../assets/images/icons/iconconsultation.png" type="image/x-png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   </head>
   <body class="bg-dark">

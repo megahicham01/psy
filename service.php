@@ -541,7 +541,7 @@
                   <h4 class="pricing_heading">Standart Session</h4>
                   <div class="pricing_price_value">
                     <span class="pricing_monthly">2500 DH <sub>par mois</sub></span>
-                    <span class="pricing_annually">2,3500 DH <sub>Vous économiserez +600</sub></span>
+                    <span class="pricing_annually">2,3500 DH <sub>Vous économiserez +600 DH</sub></span>
                   </div>
                   <hr>
                   <ul class="info_list unordered_list_block">
