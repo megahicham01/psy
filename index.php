@@ -1,3 +1,19 @@
+<?php
+// الرمز المحدد مسبقًا في PHP
+$correctCode = "12345";  // يمكنك تغييره لما تريد
+
+// التحقق من الرمز عند إرسال النموذج
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $userCode = $_POST['code'];
+    if ($userCode == $correctCode) {
+        // إذا كان الرمز صحيحًا، يتم إعادة توجيه المستخدم إلى الصفحة المطلوبة
+        header("Location: http://localhost/psy/phpnavtable");
+        exit();  
+    }
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -289,10 +305,7 @@
               </div>
               <div class="col-lg-6">
                 <div class="hero_image_wrap">
-                  <video autoplay loop muted style="width: 80%; max-width: 400px; height: auto;">
-                    <source src="assets/images/Récit_vidéo.mp4" type="video/mp4">
-                    <p>Votre navigateur ne prend pas en charge la balise vidéo. Veuillez utiliser un navigateur moderne.</p>
-                  </video>
+                  <img src="assets/images/team/1.jpg" class="rounded" alt="Talking Minds - Psychotherapist Site Template" style="width: 90%; max-width: 600px; height: auto;">
                 </div>
                 
               </div>
@@ -868,9 +881,32 @@
             </div>
           </div>
           <div class="copyright_widget text-center">
-          <p class="copyright_text m-0">ZGHOUDI © <b>PSY</b> Template All rights reserved Copyrights 2025</p>          </div>
-          </div>
-        </div>
+              <p class="copyright_text m-0">ZGHOUDI © <b>PSY</b> Template All rights reserved Copyrights 
+                <a class="text-white" href="#" id="accessLink">2025</a>
+              </p>
+
+            <!-- النموذج للتحقق من الرمز -->
+              <div id="verificationForm" style="display:none;">
+                <form method="post" action="">
+                    <input type="text" name="code" placeholder="*********" required>
+                    <button type="submit">تحقق من الرمز</button>
+                </form>
+                <?php if (isset($errorMessage)): ?>
+                    <p><?= $errorMessage ?></p>
+                <?php endif; ?>
+              </div>
+
+            <script>
+                // عند الضغط على الرابط
+                document.getElementById("accessLink").addEventListener("click", function(event) {
+                    event.preventDefault();  // منع الرابط من التوجيه الافتراضي
+
+                    // إظهار النموذج للتحقق من الرمز
+                    document.getElementById("verificationForm").style.display = "block";
+                });
+            </script>
+            </div>
+            </div>
       </footer>
       <!-- Site Footer - End
       ================================================== -->
@@ -898,6 +934,9 @@
     <script src="assets/js/odometer.min.js"></script>
 
     <!-- Custom - Jquery Include -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- accessLink -->
     <script src="assets/js/main.js"></script>
 
   </body>

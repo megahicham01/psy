@@ -4,11 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>edit consultation</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="shortcut icon" href="../assets/images/icons/iconconsultation.png" type="image/x-png">
 </head>
-  <body>
-    <h1 class="text-center m-2 text-warning">Modification de la Table du consultation</h1>
+  <body class="bg-dark">
+            
+            <nav class="container main_menu navbar navbar-expand-lg bg-white my-4">
+                <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
+                  <ul class="main_menu_list unordered_list navbar-nav">
+                    <li class="anav nav-item fw-bold">
+                      <a class="nav-link navbar-text bg-secondary" aria-current="page" href="http://localhost/psy/index.php">page index</a>
+                    </li>
+                    <?php
+                      include ('../config.php');
+                      $jibdata = "SELECT * FROM `navbar_table` ";
+                      $dirlordre = mysqli_query($connexion,$jibdata); 
+                      while($starjdid = mysqli_fetch_array($dirlordre)){
+                    ?>
+                    <li class="anav nav-item fw-bold">
+                    <a class="nav-link navbar-text " aria-current="page" href="http://localhost/psy/<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                  </ul>
+                </div>
+            </nav>         
+    <h3 class="text-white d-flex justify-content-center text-decoration-underline mb-5">Modification du Tableau du consultation</h3>
     <hr>
     <div class="container">
         <form action="edit.php" method="post">

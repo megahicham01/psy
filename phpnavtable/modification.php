@@ -8,13 +8,14 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
-  <body>
-            
+  <body class="bg-dark">
+    <div class="container">
+        
             <nav class="main_menu navbar navbar-expand-lg bg-white container my-4">
                 <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
                   <ul class="main_menu_list unordered_list navbar-nav">
                     <li class="anav nav-item fw-bold">
-                      <a class="nav-link navbar-text" aria-current="page" href="http://localhost/psy/index.php">page index</a>
+                      <a class="nav-link navbar-text bg-secondary" aria-current="page" href="http://localhost/psy/index.php">page index</a>
                     </li>
                     <?php
                       include ('../config.php');
@@ -23,24 +24,24 @@
                       while($starjdid = mysqli_fetch_array($dirlordre)){
                     ?>
                     <li class="anav nav-item fw-bold">
-                    <a class="nav-link navbar-text bg-secondary" aria-current="page" href="http://localhost/psy/<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
+                    <a class="nav-link navbar-text" aria-current="page" href="http://localhost/psy/<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
                     </li>
                     <?php
                     }
                     ?>
                   </ul>
                 </div>
-            </nav>            
-            <h3 class="text-white d-flex justify-content-center text-decoration-underline mb-5">Modification du tableau du navbar</h3>
+            </nav>
+
+            <h3 class="text-white d-flex justify-content-center text-decoration-underline mb-5">Modification du tableau des pages d'admin</h3>
 
     <hr>
-    <div class="container">
         <form action="editnav.php" method="post">
             <div class="row">
             <?php
                 include("../config.php");
                 $mod = $_GET ['ed'];
-                $select = "SELECT * FROM `navbar` WHERE id =$mod ";
+                $select = "SELECT * FROM `navbar_table` WHERE id =$mod ";
                 $resultat = mysqli_query($connexion,$select);
                 while($row = mysqli_fetch_array($resultat)){
 
