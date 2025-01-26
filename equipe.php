@@ -64,21 +64,19 @@
               </div>
             </div>
             <div class="col-lg-6 col-2">
-              <nav class="main_menu navbar navbar-expand-lg">
+            <nav class="main_menu navbar navbar-expand-lg">
                 <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
                   <ul class="main_menu_list unordered_list">
-                    <?php
-                      include ('config.php');
-                      $jibdata = "SELECT * FROM `navbar` ";
-                      $dirlordre = mysqli_query($connexion,$jibdata); 
-                      while($starjdid = mysqli_fetch_array($dirlordre)){
-                    ?>
                     <li class="anav">
-                      <a class="nav-link" aria-current="page" href="<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
+                      <a class="nav-link navbar-text" aria-current="page" href="index.html">Accueil</a>
                     </li>
-                    <?php
-                    }
-                    ?>
+                    <li class="anav">
+                      <a class="nav-link navbar-text" aria-current="page" href="Source.html">Sources</a>
+                    </li>
+                    <li class="anav">
+                      <a class="nav-link navbar-text" aria-current="page" href="equipe.php"> Communiquer avec un expert</a>
+                    </li>
+                    
                   </ul>
                 </div>
               </nav>
@@ -89,19 +87,7 @@
                   <button class="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="far fa-bars"></i>
                   </button>
-                </li>
-
-                                  <!-- Consultation modal - Start
-        ================================================== -->                                
-                <li>
-                  <a class="btn_hotline" href="#">
-                    <span class="btn_icon">
-                      <i class="fa-solid "><img src="assets/images/calendrier.png" alt="calendrier" data-bs-toggle="modal" data-bs-target="#had-div" style="height: 2rem;" class="images"></i>
-                    </span>
-                    <span class="btn_text" data-bs-toggle="modal" data-bs-target="#had-div">Obtenez votre consultation</span>
-                  </a>
-                                
-                </li>
+                </li>                      
               </ul>
             </div>
           </div>
@@ -250,11 +236,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <img src="assets/images/team/1.jpg" alt="Talking Minds - Psychotherapist Site Template">
+                    <a href="index.php"><img src="assets/images/team/1.jpg" alt="Talking Minds - Psychotherapist Site Template"></a>
                   </div>
                   <div class="team_memder_info text-center">
-                    <h3 class="team_memder_designation">Psychologue de la famille, Psy. D</h3>
-                    <h4 class="team_memder_name">Mr. Hicham ZGHOUDI</h4>
+                    <h3><a  class="team_memder_designation" href="index.php">Psychologue de la famille, Psy. D</a></h3>
+                    <h4><a  class="team_memder_name text-dark" href="index.php">Mr. Hicham ZGHOUDI</a></h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>

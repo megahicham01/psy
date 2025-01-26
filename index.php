@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!doctype html>
 <html lang="en">
 
@@ -72,17 +71,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <header class="site_header">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-lg-3 col-5">
+            <div class="col-lg-2 col-2">
               <div class="site_logo">
                 <a class="site_link" href="index.php">
                   <img src="assets/images/site_logo/Logo.png" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
                 </a>
               </div>
             </div>
-            <div class="col-lg-6 col-2">
+            <div class="col-lg-8 col-8">
               <nav class="main_menu navbar navbar-expand-lg">
                 <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
                   <ul class="main_menu_list unordered_list">
+                    <li class="anav">
+                      <a class="nav-link navbar-text" aria-current="page" href="index.html"> Accueil</a>
+                    </li>
                     <?php
                       include ('config.php');
                       $jibdata = "SELECT * FROM `navbar` ";
@@ -99,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
               </nav>
             </div>
-            <div class="col-lg-3 col-5">
+            <div class="col-lg-2 col-2">
               <ul class="header_btns_group unordered_list justify-content-end">
                 <li>
                   <button class="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
