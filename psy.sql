@@ -88,7 +88,7 @@ CREATE TABLE `navbar` (
 --
 
 INSERT INTO `navbar` (`id`, `nav`, `refer`) VALUES
-(23, 'page Expert', 'index.php'),
+(23, 'page Expert', 'expert.php'),
 (24, 'Contact', 'contact.php'),
 (26, 'Gallery', 'gallery.php'),
 (27, 'Service', 'service.php'),

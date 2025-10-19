@@ -58,7 +58,7 @@
           <div class="row align-items-center">
             <div class="col-lg-2 col-2">
               <div class="site_logo">
-                <a class="site_link" href="index.php">
+                <a class="site_link" href="expert.php">
                   <img src="assets/images/site_logo/Logo.png" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
                 </a>
               </div>
@@ -194,7 +194,7 @@
               </div>
               <div class="col-lg-6">
                 <ul class="breadcrumb_nav unordered_list justify-content-lg-end justify-content-center">
-                  <li><a href="php/index.php">Home</a></li>
+                  <li><a href="php/expert.php">Home</a></li>
                   <li>Team</li>
                 </ul>
               </div>-->
@@ -346,7 +346,7 @@
             <div class="row align-items-center">
               <div class="col-lg-3">
                 <div class="site_logo">
-                  <a class="site_link" href="index.php">
+                  <a class="site_link" href="expert.php">
                     <img src="assets/images/site_logo/Logo.png" style="height: 10rem;" alt="Site Logo – Talking Minds – Psychotherapist Site Template">
                   </a>
                 </div>

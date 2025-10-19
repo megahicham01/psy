@@ -17,7 +17,7 @@
                     </li>
                     <?php
                       include ('../config.php');
-                      $jibdata = "SELECT * FROM `navbar_table` ";
+                      $jibdata = "SELECT * FROM `admin_tables` ";
                       $dirlordre = mysqli_query($connexion,$jibdata); 
                       while($starjdid = mysqli_fetch_array($dirlordre)){
                     ?>

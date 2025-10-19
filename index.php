@@ -1,18 +1,3 @@
-<?php
-// الرمز المحدد مسبقًا في PHP
-$correctCode = "12345";  // يمكنك تغييره لما تريد
-
-// التحقق من الرمز عند إرسال النموذج
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userCode = $_POST['code'];
-    if ($userCode == $correctCode) {
-        // إذا كان الرمز صحيحًا، يتم إعادة توجيه المستخدم إلى الصفحة المطلوبة
-        header("Location: http://localhost/psy/phpnavtable");
-        exit();  
-    }
-}
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -27,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <!-- Fraimwork - CSS Include -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 
     <!-- Icon Font - CSS Include -->
     <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
@@ -49,6 +36,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Custom - CSS Include -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="styleindexhtml.css">
+
+    <!-- header style -->
+
+    <link rel="stylesheet" type="text/css" href="header/css/animate.min.css"><!-- WOW ANIMATION STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="header/css/feather.css"><!-- FEATHER ICON SHEET -->
+    <link rel="stylesheet" type="text/css" href="header/css/swiper-bundle.min.css"><!-- Swiper Slider -->
+    <link rel="stylesheet" type="text/css" href="header/css/style.css"><!-- MAIN STYLE SHEET -->
+
+    <!-- slide style : -->
+
+    <!-- 1- Theme style -->
+    <link rel='stylesheet' href='slide/css/theme.css' type='text/css' media='all' />
+    <!-- 2- Responsive -->
+    <link rel='stylesheet' href='slide/css/responsive.css' type='text/css' media='all' />
 
   </head>
 
@@ -65,812 +67,391 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </a>
       </div>
       <!-- Back To Top - End -->
-
-      <!-- Site Header - Start
-      ================================================== -->
       <header class="site_header">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-lg-2 col-2">
+            <div class="col-lg-3 col-5">
               <div class="site_logo">
-                <a class="site_link" href="index.php">
+                <a class="site_link" href="expert.php">
                   <img src="assets/images/site_logo/Logo.png" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
                 </a>
               </div>
             </div>
-            <div class="col-lg-8 col-8">
+            <div class="col-lg-6 col-2">
               <nav class="main_menu navbar navbar-expand-lg">
                 <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
                   <ul class="main_menu_list unordered_list">
                     <li class="anav">
-                      <a class="nav-link navbar-text" aria-current="page" href="index.html"> Accueil</a>
+                      <a class="nav-link navbar-text" aria-current="page" href="index.php">Accueil</a>
                     </li>
-                    <?php
-                      include ('config.php');
-                      $jibdata = "SELECT * FROM `navbar` ";
-                      $dirlordre = mysqli_query($connexion,$jibdata); 
-                      while($starjdid = mysqli_fetch_array($dirlordre)){
-                    ?>
                     <li class="anav">
-                      <a class="nav-link navbar-text" aria-current="page" href="<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
+                      <a class="nav-link navbar-text" aria-current="page" href="sources.html">Sources</a>
                     </li>
-                    <?php
-                    }
-                    ?>
+                    <li class="anav">
+                      <a class="nav-link navbar-text" aria-current="page" href="equipe.php"> Communiquer avec un expert</a>
+                    </li>
+                    
                   </ul>
                 </div>
               </nav>
-            </div>
-            <div class="col-lg-2 col-2">
-              <ul class="header_btns_group unordered_list justify-content-end">
-                <li>
-                  <button class="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="far fa-bars"></i>
-                  </button>
-                </li>
-
-                                  <!-- Consultation modal - Start
-        ================================================== -->                                
-                <li>
-                  <a class="btn_hotline" href="#">
-                    <span class="btn_icon">
-                      <i class="fa-solid "><img src="assets/images/calendrier.png" alt="calendrier" data-bs-toggle="modal" data-bs-target="#had-div" style="height: 2rem;" class="images"></i>
-                    </span>
-                    <span class="btn_text" data-bs-toggle="modal" data-bs-target="#had-div">Obtenez votre consultation</span>
-                  </a>
-                                
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </header>
 
-      <!-- Modal -->
+      
 
-      <div class="modal fade" id="had-div" tabindex="-1" data-bs-backdrop="true" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg ">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5 mx-auto text-sucess" id="exampleModalLabel">Obtenez votre consultation</h1>
+      <!-- Site Header - Start
+      ================================================== -->
+      <div class="page-wraper">
+        <!-- CONTENT START -->
+        <div class="page-content">
+            <!--SLIDER BANNER START-->
+            <div class="av-bnr-1-wrap-outer home-1-slider">
+                <!-- swiper slides -->
+                <div class="swiper-wrapper">
+                    <div class="av-bnr-1-wrap swiper-slide overlay-overlay" >
+                          <video autoplay loop muted style="width: 80%">
+                            <source src="header/images/header_video.mp4" type="video/mp4">
+                            <p>Votre navigateur ne prend pas en charge la balise vidéo. Veuillez utiliser un navigateur moderne.</p>
+                          </video>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-            <form action="phpconsult/ajouter.php" method="POST" >
-                <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="input_name">Nom</label>
-                          <input id="input_name" class="form-control" type="text" name="name1" placeholder="Your Name">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="input_phone">téléphone</label>
-                          <input id="input_phone" class="form-control" type="tel" name="phone1" placeholder="Mobile phone number">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="select_therapy">Thérapie</label>
-                          <select id="select_therapy" class="form-select" aria-label="Therapy Select Options" name="therapy1">
-                            <option selected>Sélectionner la thérapie</option>
-                            <option value="Depression Therapy">Traitement de la dépression</option>
-                            <option value="Couples Counseling">Thérapie de couples</option>
-                            <option value="Relationships">Relationships</option>
-                            <option value="Anxiety disorder">Trouble anxieux</option>
-                            <option value="Child therapy">Thérapie des enfants</option>
-                            <option value="Individual therapy">Thérapie individuelle</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="input_calendar">Date de la consultation</label>
-                          <input id="input_calendar" class="form-control" type="date" name="date1">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="btn_wrap pb-0 text-center">
-                      <button type="submit" class="btn btn-primary" name="submit">
-                        <span class="btn_text" data-text="Get A Consultation">
-                          Obtenir votre consultation
-                        </span>
-                        <span class="btn_icon">
-                          <i class="fa-solid fa-arrow-up-right"></i>
-                        </span>
+        </div>
+ 	    </div>
+  <!-- Site Header - fin
+      ================================================== -->
+
+
+
+
+    <!-- Hero Section - Start
+        ================================================== -->
+        <section class="hero_section decoration_wrapper" >
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-lg-6">
+                  <div class="hero_content_wrap">
+                    <h1 class="heading_text">
+                        Sihanafsia pour une vie meilleure.
+                    </h1>
+                    
+                    
+                    <p class="heading_description">
+                        Sihanafsia vous propose une série de tests d’auto-évaluation <br> pour mieux comprendre votre bien-être psychologique. </p> 
+                    <p class="heading_description">  
+                      Répondez simplement aux questions suivantes pour découvrir où vous en êtes et comment prendre soin de vous. :</p>  
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaltest">
+                        Démarrer test
                       </button>
-                    </div>
+                                     
                   </div>
                 </div>
+                <div class="col-lg-6">
+                  <div class="hero_image_wrap">
+                    <video autoplay loop muted style="width: 80%; max-width: 400px; height: auto;">
+                      <source src="assets/images/Récit_vidéo_2.mp4" type="video/mp4">
+                      <p>Votre navigateur ne prend pas en charge la balise vidéo. Veuillez utiliser un navigateur moderne.</p>
+                    </video>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="decoration_item shape_blur_shadow"></div>
+            <div class="decoration_item shape_leaf">
+              <img src="assets/images/shapes/shape_leaf_left_top.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
+            </div>
+          </section>
+          <!-- Modals - Start
+        ================================================== -->
+        <!-- Modal -->
+        
+        <div class="modal fade" id="modaltest" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content container">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">1. Vous vous êtes senti triste, cafardeux ou déprimé, une bonne partie de la journée, et ce, presque tous les jours ?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="submit_test.php" method="POST">
+                <h2>un test d'anxiété</h2>
+
+                <!-- الأسئلة q1 إلى q10 -->
+                <label>1. Je me sens triste ou sans espoir la plupart du temps </label>
+                <select name="q1" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <label>2. J’ai du mal à dormir ou je me sens très somnolent </label>
+                <select name="q2" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <!-- كرر نفس الشيء حتى q10 -->
+                <label>3. Je me sens stressé ou anxieux tout le temps </label>
+                <select name="q3" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+                <label>4. Je perds l’intérêt pour les activités que j’aime </label>
+                <select name="q4" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <label>5. Je me sens fatigué ou manque d’énergie chaque jour </label>
+                <select name="q5" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <!-- كرر نفس الشيء حتى q10 -->
+                <label>6. Je trouve difficile de me concentrer sur les tâches quotidiennes </label>
+                <select name="q6" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+                <label>7. Je me sens souvent isolé ou seul </label>
+                <select name="q7" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <label>8. Je me sens anxieux ou stressé à propos de choses simples ou quotidiennes </label>
+                <select name="q8" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <!-- كرر نفس الشيء حتى q10 -->
+                <label>9. Je ressens des symptômes physiques liés au stress tels que des maux de tête ou des palpitations </label>
+                <select name="q9" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+                <label>10. J’ai un sentiment de faible estime de soi ou que je suis inférieur aux autres</label>
+                <select name="q10" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+
+                <label>11. Avez-vous déjà eu envie de vous faire du mal ou pensé à vous suicider ?</label>
+                <select name="suicide_q" required>
+                  <option value="non">Non</option>
+                  <option value="oui">Oui</option>
+                </select>
+
+                <br><br>
+                <button type="submit">Envoyer des réponses</button>
               </form>
-            </div>
-            <div class="decoration_item shape_leaf_1">
-              <img src="assets/images/shapes/shape_leaf_right_top.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
-            </div>
-            <div class="decoration_item shape_leaf_2">
-              <img src="assets/images/shapes/shape_leaf_left_bottom.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
+
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#q2" data-bs-toggle="modal">Question 2</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Site Header - End
-      ================================================== -->
-
-      <!-- Main Body - Start
-      ================================================== -->
-      <main class="page_content">
-
-        <!-- Page Banner - Start
-        ================================================== -->
-        <section class="page_banner decoration_wrapper">
-         <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <!--<h1 class="page_title mb-0">Team of Professionals</h1>
-              </div>
-              <div class="col-lg-6">
-                <ul class="breadcrumb_nav unordered_list justify-content-lg-end justify-content-center">
-                  <li><a href="php/index.php">Home</a></li>
-                  <li>Team</li>
-                </ul>
-              </div>-->
+        
+        
+        <div class="modal fade" id="resultattest" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content container">
+              <div class="modal-header">
+                <div id="result" class="my-3"></div>
+              <a href="index.php" class="btn btn-success my-5">Sortir</a>
+                
+              </div>              
             </div>
           </div>
-          <div class="decoration_item shape_leaf_1">
-            <img src="assets/images/shapes/shape_leaf_left.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
-          </div>
-          <div class="decoration_item shape_leaf_2">
-            <img src="assets/images/shapes/shape_leaf_right.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
-          </div>
-        </section>
-        <!-- Page Banner - End
-        ================================================== -->
+        </div>
+         <!-- Modals - End
+          ================================================== -->
+          <!-- Hero Section - End
+          ================================================== -->
 
-        <!-- Hero Section - Start
-        ================================================== -->
-        <section class="hero_section decoration_wrapper" style="padding-top: 21px;">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <div class="hero_content_wrap">
-                  <h1 class="heading_text">
-                  Consultation privée en santé mentale d’un professionnel
-                  </h1>
-                  <p class="heading_description fw-bold">
-                    Dr.Hicham ZGHOUDI </p>
-                  <p class="heading_description">
-                  Je peux voir des progrès dans ma santé mentale, ce que je n’ai pas pu dire depuis 15 ans et c’est grâce à elle.      </p>
-                  <ul class="btns_group unordered_list">
-                    <li>
-                      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#had-div" href="contact.html">
-                        <span class="btn_text" data-text="Get A Consultation">
-                        Obtenir votre consultation
-                        </span>
-                        <span class="btn_icon">
-                          <i class="fa-solid fa-arrow-up-right"></i>
-                        </span>
-                      </a>
+          <!-- slide Section - start
+          ================================================== -->
+
+          <section class="service_section section_space_lg bg_primary_light">
+            <div class="container">
+              <div class="section_heading text-center">
+                <h2 class="section_heading_text">l'espoir</h2>
+                <p class="section_heading_description mb-0 ">
+                  "Il y a de l'espoir, même quand votre cerveau vous dit le contraire."<br> – John Green
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <div class="page-template page-template-page-fullscreen-slider page-template-page-fullscreen-slider-php page page_with_abs_header dark_color_scheme">
+            <div class="gt3_preloader">
+              <div class="gt3_preloader_content">
+                <div class="arc1"></div>
+                <div class="arc2"></div>
+                <div class="arc3"></div>
+              </div>
+            </div>
+            <div class="header_holder"></div>
+            <div class="mobile_menu_wrapper"></div>
+            <div class="sticky_menu_enabled"></div>
+            <div class="wrapper">
+              <!-- FS Slider Start -->
+              <div class="fs_gallery_megawrapper">
+                <div class="fs_title_wrapper">
+                  <h1 class="fs_title dis-01">&nbsp;</h1>
+                  <h3 class="fs_descr dis-01">&nbsp;</h3>
+                </div>
+                <a href="#" class="fs_slider_prev" data-count="13/13"></a>
+                <a href="#" class="fs_slider_next" data-count="2/13"></a>
+                <div class="fs_controls">
+                  <a href="#" class="fs_state_play fs_play_pause"><span class="icon-Pause"></span><span class="icon-Play"></span></a>
+                  <a href="#" class="close_controls fs_controls_toggler"><span class="icon-Fullscreen"></span></a>
+                  <a href="#" class="info_btn"><span class="icon-Info"></span></a>
+                </div>
+                <div class="fs_gallery_wrapper fadeOnLoad">
+                  <ul class="no_fit fs_gallery_container autoplay fs_slider fade video_cover controls_on" data-video="0" data-interval="5000" data-autoplay="autoplay">
+                    <li class="fs_slide slide_image block2preload fs_slide1" data-count="1" data-src="slide/imagslide/1.jpg" data-title="Consulter un professionnel " data-descr="Un psychologue ou psychiatre <br />peut aider à comprendre les causes <br />et proposer un accompagnement adapté." data-type="image">
                     </li>
-                    <li>
-                      <a class="btn btn-outline-secondary" href="service.php">
-                        <span class="btn_text" data-text="Learn More">
-                        En savoir plus
-                        </span>
-                        <span class="btn_icon">
-                          <i class="fa-solid fa-arrow-up-right"></i>
-                        </span>
-                      </a>
+                    <li class="fs_slide slide_image block2preload fs_slide2" data-count="2" data-src="slide/imagslide/2.jpg" data-title="Adopter une alimentation saine" data-descr="Privilégier les aliments riches en oméga-3 <br />vitamines B et D pour améliorer l'humeur." data-type="image">
                     </li>
-                  </ul>
-                  <ul class="hero_section_counter unordered_list">
-                    <li>
-                      <div class="counter_item">
-                        <div class="counter_value mb-0">
-                          <span class="odometer" data-count="15">0</span>
-                          <span>+</span>
-                        </div>
-                        <hr>
-                        <p class="counter_description mb-0">
-                        Des années d’expérience
-                        </p>
-                      </div>
+                    <li class="fs_slide slide_image block2preload fs_slide3" data-count="3" data-src="slide/imagslide/13.jpg" data-title="Être bienveillant envers soi-même" data-descr="Accepter le temps de la guérison <br />et éviter l’autocritique excessive." data-type="image">
                     </li>
-                    <li>
-                      <div class="counter_item">
-                        <div class="counter_value mb-0">
-                          <span class="odometer" data-count="840">0</span>
-                          <span>+</span>
-                        </div>
-                        <hr>
-                        <p class="counter_description mb-0">
-                        Des patients ont reçu de l’aide cette année
-                        </p>
-                      </div>
+                    <li class="fs_slide slide_image block2preload fs_slide4" data-count="4" data-src="slide/imagslide/4.jpg" data-title="Améliorer son sommeil" data-descr="Une routine régulière et moins d'écrans avant de dormir <br />favorisent l'équilibre émotionnel." data-type="image">
                     </li>
-                    <li>
-                      <div class="counter_item">
-                        <div class="counter_value mb-0">
-                          <span class="odometer" data-count="98">0</span>
-                          <span>%</span>
-                        </div>
-                        <hr>
-                        <p class="counter_description mb-0">
-                        Du client a amélioré son état
-                        </p>
-                      </div>
+                    <li class="fs_slide slide_image block2preload fs_slide5" data-count="5" data-src="slide/imagslide/5.jpg" data-title="Se fixer des objectifs réalisables" data-descr="De petits objectifs quotidiens <br />renforcent le sentiment d'accomplissement." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide6" data-count="6" data-src="slide/imagslide/6.jpg" data-title="Pratiquer la méditation" data-descr="La pleine conscience <br />aide à réduire les pensées négatives <br />et à se recentrer." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide7" data-count="7" data-src="slide/imagslide/7.jpg" data-title="Maintenir des liens sociaux" data-descr=" Être entouré de proches <br /> ou participer à des groupes de soutien <br /> est bénéfique." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide8" data-count="8" data-src="slide/imagslide/8.jpg" data-title="Limiter l’alcool et les substances toxiques" data-descr="Elles aggravent les symptômes <br />et nuisent à la santé mentale." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide9" data-count="9" data-src="slide/imagslide/9.jpg" data-title="Exprimer les émotions" data-descr="Écrire, dessiner ou jouer de la musique <br />permet d’extérioriser ses sentiments." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide10" data-count="10" data-src="slide/imagslide/10.jpg" data-title="Gérer le stress" data-descr="La respiration, le yoga et la relaxation <br />aident à mieux gérer les tensions." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide11" data-count="11" data-src="slide/imagslide/11.jpg" data-title="Créer un environnement positif" data-descr="Désencombrer et ajouter des éléments apaisants <br /> favorisent le bien-être." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide12" data-count="12" data-src="slide/imagslide/12.jpg" data-title="S’engager dans des activités gratifiantes" data-descr=" Hobbies et bénévolat <br /> procurent du plaisir et renforcent l’estime de soi." data-type="image">
+                    </li>
+                    <li class="fs_slide slide_image block2preload fs_slide13" data-count="13" data-src="slide/imagslide/13.jpg" data-title="Être bienveillant envers soi-même" data-descr="Accepter le temps de la guérison <br />et éviter l’autocritique excessive." data-type="image">
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="hero_image_wrap">
-                  <img src="assets/images/team/1.jpg" class="rounded" alt="Talking Minds - Psychotherapist Site Template" style="width: 90%; max-width: 600px; height: auto;">
+                <div class="fs_thmb_viewport">
+                  <div class="label">Thumbs</div>
+                  <div class="fs_thmb_wrapper">
+                    <ul class="fs_thmb_list fs_thumbs style8">
+                      <li class="thmb_slide thmb_slide1" data-count="1">
+                        <img alt="Happy young people" src="slide/imagslide/1.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide2" data-count="2">
+                        <img alt="Woman in white short" src="slide/imagslide/2.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide4" data-count="4">
+                        <img alt="Woman in white short" src="slide/imagslide/4.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide5" data-count="5">
+                        <img alt="Woman in white short" src="slide/imagslide/5.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide6" data-count="6">
+                        <img alt="Woman in white short" src="slide/imagslide/6.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide7" data-count="7">
+                        <img alt="Woman in white short" src="slide/imagslide/7.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide8" data-count="8">
+                        <img alt="Woman in white short" src="slide/imagslide/8.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide9" data-count="9">
+                        <img alt="Woman in white short" src="slide/imagslide/9.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide10" data-count="10">
+                        <img alt="Woman in white short" src="slide/imagslide/10.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide11" data-count="11">
+                        <img alt="Woman in white short" src="slide/imagslide/11.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide12" data-count="12">
+                        <img alt="Woman in white short" src="slide/imagslide/12.jpg">
+                      </li>
+                      <li class="thmb_slide thmb_slide13" data-count="13">
+                        <img alt="Woman in white short" src="slide/imagslide/13.jpg">
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 
+                <div class="fs_gallery_trigger personal_preloader"></div>
+                
+                <div class='fs_gallery_slider' data-thumbs-btn-title='Thumbs'></div>
               </div>
+              <!-- .fs_gallery_megawrapper -->
+              <!-- FS Slider End -->
             </div>
+            
+            
+           
+            
           </div>
-          <div class="decoration_item shape_blur_shadow"></div>
-          <div class="decoration_item shape_leaf">
-            <img src="assets/images/shapes/shape_leaf_left_top.svg" alt="Shape Leaf - Talking Minds - Psychotherapist Site Template">
-          </div>
-        </section>
-        <!-- Hero Section - End
-        ================================================== -->
-
-        <!-- Service Section - Start
-        ================================================== -->
-        <section class="service_section section_space_lg bg_primary_light">
-          <div class="container">
-            <div class="section_heading text-center">
-              <h2 class="section_heading_text">Ce que je vous offre</h2>
-              <p class="section_heading_description mb-0">
-              Je vous offre un accompagnement personnalisé pour votre bien-être mental, avec des consultations adaptées et un traitement si nécessaire.
-              </p>
-            </div>
-
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_brain.svg" alt="Brain Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Traitement de la dépression</h3>
-                    <p>
-                    Accompagnement personnalisé pour surmonter les symptômes et améliorer votre bien-être émotionnel.
-                    </p>
-                    <a class="btn-link" href="error.html">
-                      <span class="btn_text">Plus d'infos</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_head_double.svg" alt="Head Double Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Thérapie de couples</h3>
-                    <p>
-                    Aide à résoudre les conflits et à renforcer la communication et la complicité dans votre relation.
-                    </p>
-                    <a class="btn-link" href="error.html">
-                      <span class="btn_text">Plus d'infos</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service_item">
-                  <div class="item_icon">
-                    <img src="assets/images/icons/icon_head.svg" alt="Brain Icon - Talking Minds – Psychotherapist Site Template">
-                  </div>
-                  <div class="item_contact">
-                    <h3 class="item_title">Relationships</h3>
-                    <p>
-                    Conseils et soutien pour développer des relations saines et épanouissantes, qu'elles soient familiales, amicales ou professionnelles.
-                    </p>
-                    <a class="btn-link" href="error.html">
-                      <span class="btn_text">Plus d'infos</span>
-                      <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="btn_wrap pb-0 text-center">
-              <a class="btn btn-primary" href="service.php">
-                <span class="btn_text" data-text="All Programs">
-                Tous les programmes
-                </span>
-                <span class="btn_icon">
-                  <i class="fa-solid fa-arrow-up-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </section>
-        <!-- Service Section - End
-        ================================================== -->
-
-        <!-- About Section - Start
-        ================================================== -->
-        <section class="about_section section_space_lg">
-          <div class="container">
-            <div class="row align-items-center justify-content-lg-between">
-              <div class="col-lg-6 order-lg-last">
-                <div class="image_widget">
-                  <img src="assets/images/Dr. Merry Stone.jpg" alt="About Image - Talking Minds – Psychotherapist Site Template">
-                  <div class="image_shape bg_primary_light"></div>
-                  <div class="about_video_icon">
-                    <a class="video_play_btn popup_video" href="https://www.youtube.com/watch?v=eaxN2edUrnI">
-                      <i class="fa-duotone fa-play"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="about_content">
-                  <div class="section_heading mb-4">
-                    <h2 class="section_heading_text">
-                      <mark>Dr. Hicham ZGHOUDI</mark> — Thérapie de sérénité, psychologue clinique et psychothérapeute  
-                    </h2>
-                    <p class="section_heading_description mb-0 ">
-                    Offrir des soins compatissants et une thérapie fondée sur des données probantes pour favoriser le bien-être mental, la croissance personnelle et la résilience émotionnelle.
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-5 col-sm-6">
-                      <ul class="info_list unordered_list_block">
-                        <li>
-                          <span class="info_icon">
-                            <i class="fa-light fa-circle-check"></i>
-                          </span>
-                          <span class="info_text">Consultations personnelles</span>
-                        </li>
-                        <li>
-                          <span class="info_icon">
-                            <i class="fa-light fa-circle-check"></i>
-                          </span>
-                          <span class="info_text">Thérapie de groupe</span>
-                        </li>
-                        <li>
-                          <span class="info_icon">
-                            <i class="fa-light fa-circle-check"></i>
-                          </span>
-                          <span class="info_text">Thérapie en ligne</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-5 col-sm-6">
-                      <ul class="info_list unordered_list_block">
-                        <li>
-                          <span class="info_icon">
-                            <i class="fa-light fa-circle-check"></i>
-                          </span>
-                          <span class="info_text">technique unique</span>
-                        </li>
-                        <li>
-                          <span class="info_icon">
-                            <i class="fa-light fa-circle-check"></i>
-                          </span>
-                          <span class="info_text">Problème de couple</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="btn_wrap pb-0">
-                    <a class="btn btn-primary" href="service.php">
-                      <span class="btn_text" data-text="Learn More">
-                      En savoir plus
-                      </span>
-                      <span class="btn_icon">
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- About Section - End
-        ================================================== -->
-        
-
-      
-        <section class="testimonial_section section_space_lg">
-          <div class="container">
-            <div class="section_heading text-center">
-              <h2 class="section_heading_text">Ce que disent les patients</h2>
-              <p class="section_heading_description mb-0">
-              Les patients apprécient l’approche compatissante du Dr Hicham et rapportent des améliorations importantes de leur santé mentale et de leur confiance grâce à la thérapie.
-              </p>
-            </div>
-
-            <div class="testimonial_carousel">
-              <div class="carousel_2col row" data-slick='{"arrows":false}'>
-                <div class="carousel_item col-">
-                  <div class="testimonial_item">
-                    <ul class="rating_star unordered_list">
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                    </ul>
-                    <div class="author_box">
-                      <div class="author_box_image">
-                        <img src="assets/images/comment1.jpg" alt="Reviewer Image - Talking Minds - Psychotherapist Site Template">
-                      </div>
-                      <div class="author_box_content">
-                        <h3 class="author_box_name">Maryam</h3>
-                        <span class="author_box_designation">Houssa</span>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      Dr. [Name] has a calm and understanding approach that made me feel heard and supported from the very first session. 
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel_item col-">
-                  <div class="testimonial_item">
-                    <ul class="rating_star unordered_list">
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                    </ul>
-                    <div class="author_box">
-                      <div class="author_box_image">
-                        <img src="assets/images/comment2.jpg" alt="Reviewer Image - Talking Minds - Psychotherapist Site Template">
-                      </div>
-                      <div class="author_box_content">
-                        <h3 class="author_box_name">Hicham</h3>
-                        <span class="author_box_designation">Entrepreneur</span>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      I’ve seen such a positive change in my mental health thanks to her guidance and techniques.
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel_item col-">
-                  <div class="testimonial_item">
-                    <ul class="rating_star unordered_list">
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                    </ul>
-                    <div class="author_box">
-                      <div class="author_box_image">
-                        <img src="assets/images/comment3.jpg" alt="Reviewer Image - Talking Minds - Psychotherapist Site Template">
-                      </div>
-                      <div class="author_box_content">
-                        <h3 class="author_box_name">Ahmed</h3>
-                        <span class="author_box_designation">DADA</span>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      She creates a safe and welcoming space where I can openly share without judgment. 
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel_item col-">
-                  <div class="testimonial_item">
-                    <ul class="rating_star unordered_list">
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                    </ul>
-                    <div class="author_box">
-                      <div class="author_box_image">
-                        <img src="assets/images/comment1.jpg" alt="Reviewer Image - Talking Minds - Psychotherapist Site Template">
-                      </div>
-                      <div class="author_box_content">
-                        <h3 class="author_box_name">Radia</h3>
-                        <span class="author_box_designation">MOUHA</span>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      Her expertise and patience helped me overcome challenges I thought were impossible to address.
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel_item col-">
-                  <div class="testimonial_item">
-                    <ul class="rating_star unordered_list">
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                    </ul>
-                    <div class="author_box">
-                      <div class="author_box_image">
-                        <img src="assets/images/comment2.jpg" alt="Reviewer Image - Talking Minds - Psychotherapist Site Template">
-                      </div>
-                      <div class="author_box_content">
-                        <h3 class="author_box_name">Nourdine</h3>
-                        <span class="author_box_designation">JORDAN</span>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      I highly recommend her for anyone seeking a compassionate and skilled therapist. 
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel_item col-">
-                  <div class="testimonial_item">
-                    <ul class="rating_star unordered_list">
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li><i class="fa-solid fa-star"></i></li>
-                    </ul>
-                    <div class="author_box">
-                      <div class="author_box_image">
-                        <img src="assets/images/comment1.jpg" alt="Reviewer Image - Talking Minds - Psychotherapist Site Template">
-                      </div>
-                      <div class="author_box_content">
-                        <h3 class="author_box_name">Damian York</h3>
-                        <span class="author_box_designation">Entrepreneur</span>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      Thanks to her, I now have the tools to manage my anxiety and feel more in control of my life.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Testimonial Section - End
-        ================================================== -->
-
-
-        <!-- FAQ Section - Start
-        ================================================== -->
-        <section class="faq_section">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <div class="images_group_widget">
-                  <ul class="unordered_list">
-                    <li>
-                      <img src="assets/images/mentalhelth1.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                      <img src="assets/images/mentalhelth2.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                    </li>
-                    <li>
-                      <img src="assets/images/mentalhelth3.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                      <img src="assets/images/mentalhelth4.jpg" alt="Talking Minds - Psychotherapist Site Template">
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="ps-lg-5">
-                  <div class="section_heading mb-lg-4 mb-2">
-                    <h2 class="section_heading_text mb-0">
-                    Les questions les plus populaires pour discuter de la santé mentale:
-                    </h2>
-                  </div>
-                  <div class="accordion" id="faq_accordion">
-                    <div class="accordion-item">
-                      <div class="accordion-header" id="heading_one">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one">
-                        Qu'est-ce que la santé mentale?
-                        </button>
-                      </div>
-                      <div id="collapse_one" class="accordion-collapse collapse show" aria-labelledby="heading_one" data-bs-parent="#faq_accordion">
-                        <div class="accordion-body">
-                          <p class="m-0">
-                          La santé mentale fait référence au bien-être émotionnel, psychologique et social d’une personne. Elle affecte la façon dont les individus pensent, se sentent et agissent, influençant leur façon de gérer le stress, de communiquer avec les autres et de faire des choix. Une bonne santé mentale est essentielle au bien-être général et aide les gens à faire face aux contraintes normales de la vie, à travailler de façon productive et à contribuer à leur collectivité.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <div class="accordion-header" id="heading_two">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_two" aria-expanded="false" aria-controls="collapse_two">
-                        Que faire si le support ne m’aide pas ?
-                        </button>
-                      </div>
-                      <div id="collapse_two" class="accordion-collapse collapse" aria-labelledby="heading_two" data-bs-parent="#faq_accordion">
-                        <div class="accordion-body">
-                          <p class="m-0">
-                          Si le soutien ne vous aide pas, essayez les étapes suivantes : <br> <br>
-                            - Parlez à votre thérapeute de vos préoccupations. <br>
-                            - Demander un deuxième avis à un autre professionnel. <br> 
-                            - Explorer différents types de thérapie ou d’options de soutien. <br>
-                            - Se concentrer sur les soins personnels comme l’exercice et les passe-temps.                          
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <div class="accordion-header" id="heading_three">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_three" aria-expanded="false" aria-controls="collapse_three">
-                        Pouvez-vous prévenir les problèmes de santé mentale? 
-                        </button>
-                      </div>
-                      <div id="collapse_three" class="accordion-collapse collapse" aria-labelledby="heading_three" data-bs-parent="#faq_accordion">
-                        <div class="accordion-body">
-                          <p class="m-0">
-                          Bien qu’il ne soit pas toujours possible de prévenir les problèmes de santé mentale, vous pouvez prendre des mesures pour réduire le risque : <br> <br>
-
-                            - Dormez suffisamment <br>
-                            - Gérer le stress <br>
-                            - Établir des relations solides <br>
-                            Ces habitudes peuvent améliorer la résilience et soutenir la santé mentale. <br>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <div class="accordion-header" id="heading_four">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_four" aria-expanded="false" aria-controls="collapse_four">
-                        Quels sont les 7 éléments constitutifs de la santé mentale?
-                        </button>
-                      </div>
-                      <div id="collapse_four" class="accordion-collapse collapse" aria-labelledby="heading_four" data-bs-parent="#faq_accordion">
-                        <div class="accordion-body">
-                          <p class="m-0">
-                          Les sept composantes de la santé mentale comprennent le bien-être émotionnel, la résilience psychologique, les liens sociaux, l’estime de soi, la gestion du stress, le fonctionnement cognitif et la santé physique. Ces facteurs contribuent tous à maintenir un esprit équilibré et sain.                          
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <div class="accordion-header" id="heading_five">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_five" aria-expanded="false" aria-controls="collapse_five">
-                        Y a-t-il des remèdes pour les problèmes de santé mentale?
-                        </button>
-                      </div>
-                      <div id="collapse_five" class="accordion-collapse collapse" aria-labelledby="heading_five" data-bs-parent="#faq_accordion">
-                        <div class="accordion-body">
-                          <p class="m-0">
-                          Les problèmes de santé mentale ne sont peut-être pas guéris, mais ils peuvent être gérés avec une thérapie, des médicaments et du soutien, ce qui améliore le bien-être.                          
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- FAQ Section - End
-        ================================================== -->
-
-        <!-- Contact Section - Start
-        ================================================== -->
-        <section class="contact_section section_space_lg">
-          <div class="container">
-            <div class="row align-items-center justify-content-lg-between">
-              <div class="col-lg-5">
-                <div class="section_heading mb-lg-5">
-                  <h2 class="section_heading_text">coordonnées</h2>
-                  <p class="section_heading_description mb-0">
-                  N’hésitez pas à contacter pour plus de détails ou des demandes, nous sommes là pour vous aider! 
-                  </p>
-                </div>
-                <div class="row">
-                  <div class="col-md-5 col-sm-5">
-                    <ul class="contact_info_list unordered_list_block">
-                      <li>
-                        <div class="item_icon">
-                          <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div class="item_content">
-                          <h3 class="item_title">Téléphone</h3>
-                          <p class="item_info mb-0">05 34 56 78 23</p>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item_icon">
-                          <i class="fa-solid fa-fax"></i>
-                        </div>
-                        <div class="item_content">
-                          <h3 class="item_title">Fax</h3>
-                          <p class="item_info mb-0">05 34 56 78 23</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-md-7 col-sm-7">
-                    <ul class="contact_info_list unordered_list_block">
-                      <li>
-                        <div class="item_icon">
-                          <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="item_content">
-                          <h3 class="item_title">Email</h3>
-                          <p class="item_info mb-0">info@MindCare.com</p>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item_icon">
-                          <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div class="item_content">
-                          <h3 class="item_title">Location</h3>
-                          <p class="item_info mb-0">345 Av. Lalla Asmaa, <br> Casablanca 20250R</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="office_hour_list bg_primary_light mt-5">
-                  <h3 class="area_title">Heures de travail</h3>
-                  <ul class="unordered_list_block">
-                    <li>
-                      <span>Lundi - Vendredi:</span>
-                      <span>8 am - 5 pm</span>
-                    </li>
-                    <li>
-                      <span>Samedi - Dimanche</span>
-                      <span>9 am - 2 pm</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="gmap_canvas">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1738687.6692768529!2d-10.471268543750005!3d31.664657100000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafedd8b09584ed%3A0x16df0bb14e31754b!2sPsychologue%20Hicham%20lakrazbi!5e0!3m2!1sfr!2sma!4v1737051678340!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Contact Section - End
-        ================================================== -->
-
-      </main>
-      <!-- Main Body - End
-      ================================================== -->
-
+          <!-- slide Section - End
+          ================================================== -->
+         
       <!-- Site Footer - Start
       ================================================== -->
-      <footer class="site_footer bg_primary">
+    <footer class="site_footer bg_primary">
         <div class="container">
           <div class="site_footer_content">
             <div class="row align-items-center">
               <div class="col-lg-3">
                 <div class="site_logo">
-                  <a class="site_link" href="index.php">
-                    <img src="assets/images/site_logo/Logo.png" style="height: 10rem;" alt="Site Logo – Talking Minds – Psychotherapist Site Template">
+                  <a class="site_link" href="expert.php">
+                    <img src="assets/images/site_logo/Logo.png" style="height: 7rem;" alt="Site Logo – Talking Minds – Psychotherapist Site Template">
                   </a>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <ul class="info_list unordered_list justify-content-center">
-                <?php
-                      include ('config.php');
-                      $jibdata = "SELECT * FROM `navbar` ";
-                      $dirlordre = mysqli_query($connexion,$jibdata); 
-                      while($starjdid = mysqli_fetch_array($dirlordre)){
-                    ?>
-                    <li class="anav">
-                      <a class="nav-link" aria-current="page" href="<?php echo $starjdid['refer']?>"><?php echo $starjdid['nav']?></a>
-                    </li>
-                    <?php
-                    }
-                    ?>
-                </ul>
+              <div class="col-lg-6 col-2">
+                <nav class="main_menu navbar navbar-expand-lg">
+                  <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
+                    <ul class="main_menu_list unordered_list">
+                      <li class="anav">
+                        <a class="nav-link navbar-text" aria-current="page" href="index.php">Accueil</a>
+                      </li>
+                      <li class="anav">
+                        <a class="nav-link navbar-text" aria-current="page" href="sources.html">Sources</a>
+                      </li>
+                      <li class="anav">
+                        <a class="nav-link navbar-text" aria-current="page" href="equipe.php"> Communiquer avec un expert</a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </nav>
               </div>
               <div class="col-lg-3">
                 <ul class="social_links unordered_list justify-content-center justify-content-lg-end">
@@ -886,35 +467,108 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <p class="copyright_text m-0">ZGHOUDI © <b>PSY</b> Template All rights reserved Copyrights 
                 <a class="text-white" href="#" id="accessLink">2025</a>
               </p>
+        </div>
+    </div>
+    </footer>
+    <div>
+      <form action="test/submit_test.php" method="POST">
+                <h2>un test d'anxiété</h2>
 
-            <!-- النموذج للتحقق من الرمز -->
-              <div id="verificationForm" style="display:none;">
-                <form method="post" action="">
-                    <input type="text" name="code" placeholder="*********" required>
-                    <button type="submit">تحقق من الرمز</button>
-                </form>
-                <?php if (isset($errorMessage)): ?>
-                    <p><?= $errorMessage ?></p>
-                <?php endif; ?>
-              </div>
+                <!-- الأسئلة q1 إلى q10 -->
+                <label>1. Je me sens triste ou sans espoir la plupart du temps </label>
+                <select name="q1" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
 
-            <script>
-                // عند الضغط على الرابط
-                document.getElementById("accessLink").addEventListener("click", function(event) {
-                    event.preventDefault();  // منع الرابط من التوجيه الافتراضي
+                <label>2. J’ai du mal à dormir ou je me sens très somnolent </label>
+                <select name="q2" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
 
-                    // إظهار النموذج للتحقق من الرمز
-                    document.getElementById("verificationForm").style.display = "block";
-                });
-            </script>
-            </div>
-            </div>
-      </footer>
+                <!-- كرر نفس الشيء حتى q10 -->
+                <label>3. Je me sens stressé ou anxieux tout le temps </label>
+                <select name="q3" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+                <label>4. Je perds l’intérêt pour les activités que j’aime </label>
+                <select name="q4" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <label>5. Je me sens fatigué ou manque d’énergie chaque jour </label>
+                <select name="q5" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <!-- كرر نفس الشيء حتى q10 -->
+                <label>6. Je trouve difficile de me concentrer sur les tâches quotidiennes </label>
+                <select name="q6" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+                <label>7. Je me sens souvent isolé ou seul </label>
+                <select name="q7" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <label>8. Je me sens anxieux ou stressé à propos de choses simples ou quotidiennes </label>
+                <select name="q8" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+                <!-- كرر نفس الشيء حتى q10 -->
+                <label>9. Je ressens des symptômes physiques liés au stress tels que des maux de tête ou des palpitations </label>
+                <select name="q9" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+                <label>10. J’ai un sentiment de faible estime de soi ou que je suis inférieur aux autres</label>
+                <select name="q10" required>
+                  <option value="jamais">jamais</option>
+                  <option value="quelques jours">quelques jours</option>
+                  <option value="souvent">souvent</option>
+                  <option value="toujours">toujours</option>
+                </select>
+
+
+                <label>11. Avez-vous déjà eu envie de vous faire du mal ou pensé à vous suicider ?</label>
+                <select name="suicide_q" required>
+                  <option value="non">Non</option>
+                  <option value="oui">Oui</option>
+                </select>
+
+                <br><br>
+                <button type="submit">Envoyer des réponses</button>
+              </form>
+    </div>
       <!-- Site Footer - End
       ================================================== -->
 
-    </div>
-    <!-- Body Wrap - End -->
 
     <!-- Fraimwork - Jquery Include -->
     <script src="assets/js/jquery.min.js"></script>
@@ -937,9 +591,104 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Custom - Jquery Include -->
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- JAVASCRIPT header FILES ========================================= --> 
+    <script  src="header/js/jquery-3.7.1.min.js"></script><!-- JQUERY.MIN JS -->
+    <script  src="header/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+    <script  src="header/js/imagesloaded.pkgd.min.js"></script><!-- MASONRY  -->
+    <script  src="header/js/swiper-bundle.min.js"></script><!-- Swiper JS -->
+    <script  src="header/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+
+
+     <!-- slide Main scripts -->
+     <script src='slide/js/jquery/jquery.js'></script>
+     <script src='https://player.vimeo.com/api/player.js'></script>
+     <script src='slide/js/plugins/jquery.scrollTo.js'></script>
+     <script src='slide/js/plugins/jquery.fs.gallery.js'></script>
+     <script src='slide/js/theme.js'></script>
+
+     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('.btn-close, [data-bs-dismiss="modal"]').forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                  document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+                      backdrop.remove();
+                  });
+                  document.body.classList.remove('modal-open');
+                  document.body.style.overflow = 'auto'; 
+              });
+          });
+      });
+  </script>
+  
 
     <!-- accessLink -->
     <script src="assets/js/main.js"></script>
+    <!-- ربط سكربتات Bootstrap -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script>
+      function calculateScore() {
+          const answers = [
+              document.querySelector('input[name="question1"]:checked'),
+              document.querySelector('input[name="question2"]:checked'),
+              document.querySelector('input[name="question3"]:checked'),
+              document.querySelector('input[name="question4"]:checked'),
+              document.querySelector('input[name="question5"]:checked'),
+              document.querySelector('input[name="question6"]:checked'),
+              document.querySelector('input[name="question7"]:checked'),
+              document.querySelector('input[name="question8"]:checked'),
+              document.querySelector('input[name="question9"]:checked'),
+              document.querySelector('input[name="question10"]:checked')
+          ];
+      
+          let score = 0;
+      
+          answers.forEach(answer => {
+              if (answer && answer.value === "Oui") {
+                  score++;
+              }
+          });
+      
+          let resultText = '';
+          if (score === 0) {
+              resultText = "Votre résultat : Vous semblez en bonne santé mentale.";
+          } else if (score <= 3) {
+              resultText = "Votre résultat : Symptômes légers à modérés d'anxiété ou de dépression.";
+          } else if (score <= 6) {
+              resultText = "Votre résultat : Symptômes modérés à sévères d'anxiété ou de dépression.";
+          } else {
+              resultText = "Votre résultat : Symptômes graves, il est fortement recommandé de consulter un professionnel.";
+          }
+      
+          document.getElementById("result").innerHTML = `<h4>${resultText}</h4>`;
+      }
+      </script>
 
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

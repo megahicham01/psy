@@ -58,7 +58,7 @@
           <div class="row align-items-center">
             <div class="col-lg-3 col-5">
               <div class="site_logo">
-                <a class="site_link" href="index.php">
+                <a class="site_link" href="expert.php">
                   <img src="assets/images/site_logo/Logo.png" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
                 </a>
               </div>
@@ -68,7 +68,7 @@
                 <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
                   <ul class="main_menu_list unordered_list">
                     <li class="anav">
-                      <a class="nav-link navbar-text" aria-current="page" href="index.html">Accueil</a>
+                      <a class="nav-link navbar-text" aria-current="page" href="index.php">Accueil</a>
                     </li>
                     <li class="anav">
                       <a class="nav-link navbar-text" aria-current="page" href="Source.html">Sources</a>
@@ -180,7 +180,7 @@
               </div>
               <div class="col-lg-6">
                 <ul class="breadcrumb_nav unordered_list justify-content-lg-end justify-content-center">
-                  <li><a href="php/index.php">Home</a></li>
+                  <li><a href="php/expert.php">Home</a></li>
                   <li>Team</li>
                 </ul>
               </div>-->
@@ -236,11 +236,11 @@
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team_item">
                   <div class="team_memder_image">
-                    <a href="index.php"><img src="assets/images/team/1.jpg" alt="Talking Minds - Psychotherapist Site Template"></a>
+                    <a href="expert.php"><img src="assets/images/team/1.jpg" alt="Talking Minds - Psychotherapist Site Template"></a>
                   </div>
                   <div class="team_memder_info text-center">
-                    <h3><a  class="team_memder_designation" href="index.php">Psychologue de la famille, Psy. D</a></h3>
-                    <h4><a  class="team_memder_name text-dark" href="index.php">Mr. Hicham ZGHOUDI</a></h4>
+                    <h3><a  class="team_memder_designation" href="expert.php">Psychologue de la famille, Psy. D</a></h3>
+                    <h4><a  class="team_memder_name text-dark" href="expert.php">Mr. Hicham ZGHOUDI</a></h4>
                     <ul class="social_links unordered_list justify-content-center">
                       <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
                       <li><a href="#!"><i class="fa-brands fa-instagram"></i></a></li>
@@ -353,7 +353,7 @@
             <div class="row align-items-center">
               <div class="col-lg-3">
                 <div class="site_logo">
-                  <a class="site_link" href="index.php">
+                  <a class="site_link" href="expert.php">
                     <img src="assets/images/site_logo/Logo.png" style="height: 10rem;" alt="Site Logo – Talking Minds – Psychotherapist Site Template">
                   </a>
                 </div>
