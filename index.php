@@ -70,31 +70,16 @@
       <header class="site_header">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-lg-3 col-5">
+            <div class="col-lg-3">
               <div class="site_logo">
                 <a class="site_link" href="expert.php">
                   <img src="assets/images/site_logo/Logo.png" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
                 </a>
               </div>
             </div>
-            <div class="col-lg-6 col-2">
-              <nav class="main_menu navbar navbar-expand-lg">
-                <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
-                  <ul class="main_menu_list unordered_list">
-                    <li class="anav">
-                      <a class="nav-link navbar-text" aria-current="page" href="index.php">Accueil</a>
-                    </li>
-                    <li class="anav">
-                      <a class="nav-link navbar-text" aria-current="page" href="sources.html">Sources</a>
-                    </li>
-                    <li class="anav">
-                      <a class="nav-link navbar-text" aria-current="page" href="equipe.php"> Communiquer avec un expert</a>
-                    </li>
-                    
-                  </ul>
-                </div>
-              </nav>
-            </div>
+            <?php
+            include ('phpnav/navbar.php');
+            ?>
           </div>
         </div>
       </header>
@@ -166,126 +151,279 @@
           </section>
           <!-- Modals - Start
         ================================================== -->
-        <!-- Modal -->
+        <!-- Modal test g-->
         
         <div class="modal fade" id="modaltest" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content container">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">1. Vous vous êtes senti triste, cafardeux ou déprimé, une bonne partie de la journée, et ce, presque tous les jours ?</h1>
+                <div style="border: 2px solid #f5c542; background-color: #fff3cd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+                  <strong>Avertissement :</strong> Ces tests sont fournis uniquement à des fins d'information et de sensibilisation et ne constituent pas un diagnostic clinique ou médical. 
+                  Si vous ressentez des symptômes graves ou des idées d'automutilation, veuillez contacter immédiatement un professionnel qualifié.
+                </div>
+
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="submit_test.php" method="POST">
-                <h2>un test d'anxiété</h2>
+              <form action="test/submit_test.php" method="POST" id="testform">
+                <h3>Test général</h3>
+                <h5>Au cours du mois dernier…</h5>
 
-                <!-- الأسئلة q1 إلى q10 -->
-                <label>1. Je me sens triste ou sans espoir la plupart du temps </label>
-                <select name="q1" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
+               <!-- Question 1 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">1. Je me sens triste ou sans espoir la plupart du temps :</label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="r1q1" value="jamais"  required>
+                            <label class="form-check-label" for="r1q1">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="r2q1" value="quelques jours">
+                            <label class="form-check-label" for="r2q1">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="r3q1" value="souvent">
+                            <label class="form-check-label" for="r3q1">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="r4q1" value="toujours">
+                            <label class="form-check-label" for="r4q1">toujours</label>
+                        </div>
+                    </div>
+                </div>
 
-                <label>2. J’ai du mal à dormir ou je me sens très somnolent </label>
-                <select name="q2" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
+                <!-- Question 2 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">2. J’ai du mal à dormir ou je me sens très somnolent </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="r1q2" value="jamais"  required>
+                            <label class="form-check-label" for="r1q2">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="r2q2" value="quelques jours">
+                            <label class="form-check-label" for="r2q2">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="r3q2" value="souvent">
+                            <label class="form-check-label" for="r3q2">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="r4q2" value="toujours">
+                            <label class="form-check-label" for="r4q2">toujours</label>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- كرر نفس الشيء حتى q10 -->
-                <label>3. Je me sens stressé ou anxieux tout le temps </label>
-                <select name="q3" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-                <label>4. Je perds l’intérêt pour les activités que j’aime </label>
-                <select name="q4" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
+                                <!-- Question 3 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">3. Je me sens stressé ou anxieux tout le temps </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="r1q3" value="jamais"  required>
+                            <label class="form-check-label" for="r1q3">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="r2q3" value="quelques jours">
+                            <label class="form-check-label" for="r2q3">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="r3q3" value="souvent">
+                            <label class="form-check-label" for="r3q3">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="r4q3" value="toujours">
+                            <label class="form-check-label" for="r4q3">toujours</label>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Question 4 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">4. Je perds l’intérêt pour les activités que j’aime</label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="r1q4" value="jamais"  required>
+                            <label class="form-check-label" for="r1q4">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="r2q4" value="quelques jours">
+                            <label class="form-check-label" for="r2q4">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="r3q4" value="souvent">
+                            <label class="form-check-label" for="r3q4">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="r4q4" value="toujours">
+                            <label class="form-check-label" for="r4q4">toujours</label>
+                        </div>
+                    </div>
+                </div>
 
-                <label>5. Je me sens fatigué ou manque d’énergie chaque jour </label>
-                <select name="q5" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
+                 <!-- Question 5 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">5. Je me sens fatigué ou manque d’énergie chaque jour </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5" id="r1q5" value="jamais"  required>
+                            <label class="form-check-label" for="r1q5">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5" id="r2q5" value="quelques jours">
+                            <label class="form-check-label" for="r2q5">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5" id="r3q5" value="souvent">
+                            <label class="form-check-label" for="r3q5">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5" id="r4q5" value="toujours">
+                            <label class="form-check-label" for="r4q5">toujours</label>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- كرر نفس الشيء حتى q10 -->
-                <label>6. Je trouve difficile de me concentrer sur les tâches quotidiennes </label>
-                <select name="q6" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-                <label>7. Je me sens souvent isolé ou seul </label>
-                <select name="q7" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
+                 <!-- Question 6 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">6. Je trouve difficile de me concentrer sur les tâches quotidiennes </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q6" id="r1q6" value="jamais"  required>
+                            <label class="form-check-label" for="r1q6">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q6" id="r2q6" value="quelques jours">
+                            <label class="form-check-label" for="r2q6">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q6" id="r3q6" value="souvent">
+                            <label class="form-check-label" for="r3q6">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q6" id="r4q6" value="toujours">
+                            <label class="form-check-label" for="r4q6">toujours</label>
+                        </div>
+                    </div>
+                </div>
 
-                <label>8. Je me sens anxieux ou stressé à propos de choses simples ou quotidiennes </label>
-                <select name="q8" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <!-- كرر نفس الشيء حتى q10 -->
-                <label>9. Je ressens des symptômes physiques liés au stress tels que des maux de tête ou des palpitations </label>
-                <select name="q9" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-                <label>10. J’ai un sentiment de faible estime de soi ou que je suis inférieur aux autres</label>
-                <select name="q10" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-
-                <label>11. Avez-vous déjà eu envie de vous faire du mal ou pensé à vous suicider ?</label>
-                <select name="suicide_q" required>
-                  <option value="non">Non</option>
-                  <option value="oui">Oui</option>
-                </select>
-
-                <br><br>
-                <button type="submit">Envoyer des réponses</button>
+                 <!-- Question 7 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">7. Je me sens souvent isolé ou seul </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="r1q7" value="jamais"  required>
+                            <label class="form-check-label" for="r1q7">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="r2q7" value="quelques jours">
+                            <label class="form-check-label" for="r2q7">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="r3q7" value="souvent">
+                            <label class="form-check-label" for="r3q7">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="r4q7" value="toujours">
+                            <label class="form-check-label" for="r4q7">toujours</label>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Question 8 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">8. Je me sens anxieux ou stressé à propos de choses simples ou quotidiennes </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q8" id="r1q8" value="jamais"  required>
+                            <label class="form-check-label" for="r1q8">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q8" id="r2q8" value="quelques jours">
+                            <label class="form-check-label" for="r2q8">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q8" id="r3q8" value="souvent">
+                            <label class="form-check-label" for="r3q8">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q8" id="r4q8" value="toujours">
+                            <label class="form-check-label" for="r4q8">toujours</label>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Question 9 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">9. Je ressens des symptômes physiques liés au stress tels que des maux de tête ou des palpitations </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="r1q9" value="jamais"  required>
+                            <label class="form-check-label" for="r1q9">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="r2q9" value="quelques jours">
+                            <label class="form-check-label" for="r2q9">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="r3q9" value="souvent">
+                            <label class="form-check-label" for="r3q9">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="r4q9" value="toujours">
+                            <label class="form-check-label" for="r4q9">toujours</label>
+                        </div>
+                    </div>
+                </div>
+                  <!-- Question 10 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">10. J’ai un sentiment de faible estime de soi ou que je suis inférieur aux autres </label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q10" id="r1q10" value="jamais"  required>
+                            <label class="form-check-label" for="r1q10">jamais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q10" id="r2q10" value="quelques jours">
+                            <label class="form-check-label" for="r2q10">quelques jours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q10" id="r3q10" value="souvent">
+                            <label class="form-check-label" for="r3q10">souvent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q10" id="r4q10" value="toujours">
+                            <label class="form-check-label" for="r4q10">toujours</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Question 11 -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">11. Avez-vous déjà eu envie de vous faire du mal ou pensé à vous suicider ?</label>
+                    <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="suicide_q" id="r1qsuicide_q" value="0"  required>
+                            <label class="form-check-label" for="r1qsuicide_q">Non</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="suicide_q" id="r2qsuicide_q" value="1">
+                            <label class="form-check-label" for="r2qsuicide_q">Oui</label>
+                        </div>
+                        
+                    </div>
+                </div> 
+                <button type="submit" type="button" class="btn btn-success my-3">Afficher la réponse</button>
               </form>
-
-              <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#q2" data-bs-toggle="modal">Question 2</button>
-              </div>
+              <div id="test-result" class="mt-3"></div>
             </div>
           </div>
         </div>
         
+        <!-- another Modal ()-->        
         
-        <div class="modal fade" id="resultattest" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal fade" id="modal-autres-tests" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content container">
               <div class="modal-header">
-                <div id="result" class="my-3"></div>
-              <a href="index.php" class="btn btn-success my-5">Sortir</a>
-                
-              </div>              
+                <div id="test-result-modal2" class="my-3"></div>               
+                <a href="index.php" class="btn btn-success my-5">Sortir</a>               
+              </div>
             </div>
           </div>
         </div>
@@ -470,102 +608,7 @@
         </div>
     </div>
     </footer>
-    <div>
-      <form action="test/submit_test.php" method="POST">
-                <h2>un test d'anxiété</h2>
-
-                <!-- الأسئلة q1 إلى q10 -->
-                <label>1. Je me sens triste ou sans espoir la plupart du temps </label>
-                <select name="q1" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <label>2. J’ai du mal à dormir ou je me sens très somnolent </label>
-                <select name="q2" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <!-- كرر نفس الشيء حتى q10 -->
-                <label>3. Je me sens stressé ou anxieux tout le temps </label>
-                <select name="q3" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-                <label>4. Je perds l’intérêt pour les activités que j’aime </label>
-                <select name="q4" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <label>5. Je me sens fatigué ou manque d’énergie chaque jour </label>
-                <select name="q5" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <!-- كرر نفس الشيء حتى q10 -->
-                <label>6. Je trouve difficile de me concentrer sur les tâches quotidiennes </label>
-                <select name="q6" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-                <label>7. Je me sens souvent isolé ou seul </label>
-                <select name="q7" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <label>8. Je me sens anxieux ou stressé à propos de choses simples ou quotidiennes </label>
-                <select name="q8" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-                <!-- كرر نفس الشيء حتى q10 -->
-                <label>9. Je ressens des symptômes physiques liés au stress tels que des maux de tête ou des palpitations </label>
-                <select name="q9" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-                <label>10. J’ai un sentiment de faible estime de soi ou que je suis inférieur aux autres</label>
-                <select name="q10" required>
-                  <option value="jamais">jamais</option>
-                  <option value="quelques jours">quelques jours</option>
-                  <option value="souvent">souvent</option>
-                  <option value="toujours">toujours</option>
-                </select>
-
-
-                <label>11. Avez-vous déjà eu envie de vous faire du mal ou pensé à vous suicider ?</label>
-                <select name="suicide_q" required>
-                  <option value="non">Non</option>
-                  <option value="oui">Oui</option>
-                </select>
-
-                <br><br>
-                <button type="submit">Envoyer des réponses</button>
-              </form>
-    </div>
+           
       <!-- Site Footer - End
       ================================================== -->
 
@@ -607,6 +650,10 @@
      <script src='slide/js/plugins/jquery.scrollTo.js'></script>
      <script src='slide/js/plugins/jquery.fs.gallery.js'></script>
      <script src='slide/js/theme.js'></script>
+     
+      <!-- test scripts --> 
+      <script src='test/test_ajax.js'></script>   
+     
 
      <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -620,7 +667,7 @@
               });
           });
       });
-  </script>
+    </script>
   
 
     <!-- accessLink -->
@@ -631,16 +678,16 @@
       <script>
       function calculateScore() {
           const answers = [
-              document.querySelector('input[name="question1"]:checked'),
-              document.querySelector('input[name="question2"]:checked'),
-              document.querySelector('input[name="question3"]:checked'),
-              document.querySelector('input[name="question4"]:checked'),
-              document.querySelector('input[name="question5"]:checked'),
-              document.querySelector('input[name="question6"]:checked'),
-              document.querySelector('input[name="question7"]:checked'),
-              document.querySelector('input[name="question8"]:checked'),
-              document.querySelector('input[name="question9"]:checked'),
-              document.querySelector('input[name="question10"]:checked')
+              document.querySelector('input[name="question1"]:'),
+              document.querySelector('input[name="question2"]:'),
+              document.querySelector('input[name="question3"]:'),
+              document.querySelector('input[name="question4"]:'),
+              document.querySelector('input[name="question5"]:'),
+              document.querySelector('input[name="question6"]:'),
+              document.querySelector('input[name="question7"]:'),
+              document.querySelector('input[name="question8"]:'),
+              document.querySelector('input[name="question9"]:'),
+              document.querySelector('input[name="question10"]:')
           ];
       
           let score = 0;
@@ -665,30 +712,7 @@
           document.getElementById("result").innerHTML = `<h4>${resultText}</h4>`;
       }
       </script>
+ 
 
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
