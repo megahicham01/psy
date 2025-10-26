@@ -1,54 +1,102 @@
 <?php
+// test/submit_test.php
 include '../config.php';
+function esc($s){ return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
 
-$q1 = $_POST['q1'] ?? '';
-$q2 = $_POST['q2'] ?? '';
-$q3 = $_POST['q3'] ?? '';
-$q4 = $_POST['q4'] ?? '';
-$q5 = $_POST['q5'] ?? '';
-$q6 = $_POST['q6'] ?? '';
-$q7 = $_POST['q7'] ?? '';
-$q8 = $_POST['q8'] ?? '';
-$q9 = $_POST['q9'] ?? '';
-$q10 = $_POST['q10'] ?? '';
-$suicide_q = $_POST['suicide_q'] ?? '0';
+// جمع الأسئلة من POST
+$q=[];
+for($i=1;$i<=10;$i++){
+    $k='q'.$i;
+    $q[$i] = $_POST[$k] ?? '';
+}
+$suicide_q = isset($_POST['suicide_q']) ? (int)$_POST['suicide_q'] : 0;
 
-// تنفيذ INSERT (Trigger يحسب السكورات و C_SSRS و comment_msg تلقائيًا)
-$sql = "INSERT INTO test_base 
-        (q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,suicide_q) 
-        VALUES 
-        ('$q1','$q2','$q3','$q4','$q5','$q6','$q7','$q8','$q9','$q10','$suicide_q')";
+// إدخال البيانات فقط id, Q1..Q10, suicide_q
+$stmt=$connexion->prepare("
+    INSERT INTO test_base (Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,suicide_q,timestamp)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,NOW())
+");
+$stmt->bind_param('sssssssssis',
+    $q[1],$q[2],$q[3],$q[4],$q[5],$q[6],$q[7],$q[8],$q[9],$q[10],$suicide_q
+);
+if(!$stmt->execute()){
+    echo '<div class="alert alert-danger">Erreur insertion: '.esc($connexion->error).'</div>';
+    exit;
+}
+$last_id = $stmt->insert_id;
+$stmt->close();
 
-if (mysqli_query($connexion, $sql)) {
+// جلب السطر بعد trigger
+$res = $connexion->query("SELECT * FROM test_base WHERE id=".(int)$last_id);
+$row = $res->fetch_assoc();
 
-$last_id = mysqli_insert_id($connexion);
-$res = mysqli_query($connexion, "SELECT * FROM test_base WHERE id = $last_id");
-$row = mysqli_fetch_assoc($res);
+// HTML النتائج
+$html = '<div id="mainTestResult">';
+$html .= '<h4>'.esc($row['comment_msg']).'</h4>';
 
-// عرض الرسالة
-echo "<h2>" . $row['comment_msg'] . "</h2>";
-
-// زر C-SSRS إذا كانت suicide_q = oui
-if ($row['suicide_q'] == 1) {
-    echo '<a href="test/C_SSRS.php" class="btn btn-danger my-2">إجراء اختبار C-SSRS</a>';
-
-
-// إذا suicide_q = non، عرض أزرار الاختبارات التي تساوي 1
-if ($row['suicide_q'] == 0) {
-    $tests = [
-        'Display_PHQ9' => 'PHQ9.php',
-        'Display_GAD7' => 'GAD7.php',
-        'Display_PCL5' => 'PCL5.php',
-        'Display_ISI' => 'ISI.php',
-        'Display_AUDIT_C' => 'AUDIT_C.php',
-        'Display_AUDIT' => 'AUDIT.php',
-        'Display_DAST10' => 'DAST10.php'
+// إذا suicide_q = 1
+if($suicide_q === 1){
+    $html .= '<button class="btn btn-danger my-2" onclick="window.open(\'test/ssrs.php?id='.$last_id.'\',\'_blank\')">C-SSRS</button>';
+}else{
+    // الاختبارات المقترحة بناءً على display
+    $tests=[
+        'Display_PHQ9'=>['file'=>'phq.php','label'=>'PHQ-9'],
+        'Display_GAD7'=>['file'=>'gad.php','label'=>'GAD-7'],
+        'Display_PCL5'=>['file'=>'pcl.php','label'=>'PCL-5'],
+        'Display_ISI'=>['file'=>'isi.php','label'=>'ISI'],
+        'Display_AUDIT_C'=>['file'=>'audit_c.php','label'=>'AUDIT-C'],
+        'Display_AUDIT'=>['file'=>'audit.php','label'=>'AUDIT'],
+        'Display_DAST10'=>['file'=>'dast.php','label'=>'DAST-10'],
     ];
 
-    foreach ($tests as $col => $file) {
-        if ($row[$col] == 1) {
-            echo '<a href="test/' . $file . '" class="btn btn-primary my-1">' . str_replace('.php','',$file) . '</a> ';
+    $visibleTests=[];
+    foreach($tests as $col=>$info){
+        if(!empty($row[$col]) && (int)$row[$col]===1){
+            $visibleTests[$col]=$info;
+
+            // إدخال id, suicide_q, comment_msg لكل جدول اختبارات فرعية
+            $table = str_replace(['Display_'],['test_'], $col); // اختبار سريع للجدول
+            if($connexion->query("SHOW TABLES LIKE '".$table."'")->num_rows >0){
+                $stmt2=$connexion->prepare("
+                    INSERT INTO $table (id, suicide_q, comment_msg, timestamp) VALUES (?,?,?,NOW())
+                ");
+                $stmt2->bind_param('iis',$last_id,$suicide_q,$row['comment_msg']);
+                $stmt2->execute();
+                $stmt2->close();
+            }
         }
     }
-}}}
-?>
+
+    if($visibleTests){
+        $html .= '<div class="accordion accordion-flush mt-3" id="accordionTests">';
+        $first=true;
+        foreach($visibleTests as $col=>$info){
+            $html .= '
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading'.esc($col).'">
+                    <button class="accordion-button '.($first?'':'collapsed').'" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse'.esc($col).'" 
+                        aria-expanded="'.($first?'true':'false').'" aria-controls="collapse'.esc($col).'">
+                        '.esc($info['label']).'
+                    </button>
+                </h2>
+                <div id="collapse'.esc($col).'" class="accordion-collapse collapse '.($first?'show':'').'" 
+                     aria-labelledby="heading'.esc($col).'" data-bs-parent="#accordionTests">
+                    <div class="accordion-body">
+                        <form action="test/'.esc($info['file']).'" method="POST" class="subTestForm" data-result="result_'.esc($col).'">
+                            <input type="hidden" name="base_id" value="'.(int)$last_id.'">
+                            <?php include "test/'.esc($info['file']).'"; ?>
+                            <button type="submit" class="btn btn-success my-3">Afficher la réponse</button>
+                        </form>
+                        <div id="result_'.esc($col).'" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>';
+            $first=false;
+        }
+        $html .= '</div>';
+    }
+}
+
+$html .= '</div>';
+echo $html;

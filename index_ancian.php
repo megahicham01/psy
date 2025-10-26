@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Home - SihaNafsia</title>
+    <title>Home - MindCare Clinique – Psychotherapist</title>
     <link rel="shortcut icon" href="assets/images/site_logo/Logo.png">
     
     <!-- Fraimwork - CSS Include -->
@@ -127,9 +127,8 @@
                         Sihanafsia vous propose une série de tests d’auto-évaluation <br> pour mieux comprendre votre bien-être psychologique. </p> 
                     <p class="heading_description">  
                       Répondez simplement aux questions suivantes pour découvrir où vous en êtes et comment prendre soin de vous. :</p>  
-                      
-                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTestGeneral">
-                          Démarrer test
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaltest">
+                        Démarrer test
                       </button>
                                      
                   </div>
@@ -154,53 +153,22 @@
         ================================================== -->
         <!-- Modal test g-->
         
-        <!-- Button to start test -->
-<?php
-// modal_test_general.php
-include '../config.php';
-function esc($s){ return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
+        <div class="modal fade" id="modaltest" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content container">
+              <div class="modal-header">
+                <div style="border: 2px solid #f5c542; background-color: #fff3cd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+                  <strong>Avertissement :</strong> Ces tests sont fournis uniquement à des fins d'information et de sensibilisation et ne constituent pas un diagnostic clinique ou médical. 
+                  Si vous ressentez des symptômes graves ou des idées d'automutilation, veuillez contacter immédiatement un professionnel qualifié.
+                </div>
 
-// جلب آخر إدخال للـ test_base
-$last_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-$res = $connexion->query("SELECT * FROM test_base WHERE id=".$last_id." LIMIT 1");
-$row = $res->fetch_assoc();
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="test/submit_test.php" method="POST" id="testform">
+                <h3>Test général</h3>
+                <h5>Au cours du mois dernier…</h5>
 
-// تعريف الاختبارات الممكنة
-$tests = [
-    'Display_PHQ9'    => ['file'=>'phq.php','label'=>'PHQ-9'],
-    'Display_GAD7'    => ['file'=>'gad.php','label'=>'GAD-7'],
-    'Display_PCL5'    => ['file'=>'pcl.php','label'=>'PCL-5'],
-    'Display_ISI'     => ['file'=>'isi.php','label'=>'ISI'],
-    'Display_AUDIT_C' => ['file'=>'audit_c.php','label'=>'AUDIT-C'],
-    'Display_AUDIT'   => ['file'=>'audit.php','label'=>'AUDIT'],
-    'Display_DAST10'  => ['file'=>'dast.php','label'=>'DAST-10'],
-];
-
-// بناء قائمة الاختبارات المقترحة فقط
-$visibleTests = [];
-foreach($tests as $col => $info){
-    if(isset($row[$col]) && (int)$row[$col] === 1){
-        $visibleTests[$col] = $info;
-    }
-}
-?>
-
-<!-- Modal -->
-<div class="modal fade" id="modalTestGeneral" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div style="border:2px solid #f5c542;background-color:#fff3cd;padding:15px;border-radius:5px;">
-          <strong>Avertissement :</strong> Ces tests sont fournis uniquement à des fins d'information et de sensibilisation.
-          Si vous ressentez des symptômes graves ou des idées d'automutilation, contactez immédiatement un professionnel qualifié.
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-        <!-- Form Test Général -->
-        <form id="formGeneral" action="test/submit_test.php" method="POST">
-          <!-- Question 1 -->
+               <!-- Question 1 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">1. Je me sens triste ou sans espoir la plupart du temps :</label>
                     <div class="d-flex justify-content-evenly flex-wrap">
@@ -440,62 +408,47 @@ foreach($tests as $col => $info){
                         
                     </div>
                 </div> 
-          <button type="submit" class="btn btn-success my-3">Afficher la réponse</button>
-        </form>
-
-        <!-- Résultat Test Général -->
-        <div id="resultGeneral" class="mt-3"></div>
-  <!-- Div لعرض Accordion الاختبارات المقترحة -->
-        <div id="accordionSubTests" class="mt-3"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
- <script>
-document.addEventListener('submit', function(e){
-    // Test Général
-    if(e.target && e.target.id === 'formGeneral'){
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const resultDiv = document.getElementById('resultGeneral');
-
-        fetch(e.target.action, {method:'POST', body: formData})
-            .then(r => r.text())
-            .then(html => { 
-                resultDiv.innerHTML = html;
-                resultDiv.scrollIntoView({behavior:'smooth'});
-                // قفل form بعد الإرسال
-                e.target.querySelectorAll('select, button').forEach(el=>el.disabled=true);
-            })
-            .catch(err => { 
-                resultDiv.innerHTML='<div class="alert alert-danger">Erreur lors de l\'envoi.</div>'; 
-                console.error(err); 
-            });
-    }
-
-    // SubTests داخل accordion
-    if(e.target && e.target.classList.contains('subTestForm')){
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const resultDiv = document.getElementById(e.target.dataset.result);
-
-        fetch(e.target.action, {method:'POST', body: formData})
-            .then(r => r.text())
-            .then(html => { 
-                resultDiv.innerHTML = html;
-                resultDiv.scrollIntoView({behavior:'smooth'});
-                e.target.querySelectorAll('select, button').forEach(el=>el.disabled=true);
-            })
-            .catch(err => { 
-                resultDiv.innerHTML='<div class="alert alert-danger">Erreur lors de l\'envoi.</div>'; 
-                console.error(err); 
-            });
-    }
-});
-</script>
-
-
+                <button type="submit" type="button" class="btn btn-success my-3">Afficher la réponse</button>
+              </form>
+              <div id="test-result" class="mt-3"></div>
+              <script>
+              // AJAX عبر fetch
+              document.getElementById('testform').addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  const formData = new FormData(this);
+                  fetch('test/submit_test.php', {
+                      method: 'POST',
+                      body: formData
+                  })
+                  .then(res => res.text())
+                  .then(html => {
+                      document.getElementById('test-result').innerHTML = html;
+                      window.scrollTo({top: document.getElementById('test-result').offsetTop, behavior:'smooth'});
+                  })
+                  .catch(err => {
+                      document.getElementById('test-result').innerHTML = '<div class="alert alert-danger">حدث خطأ في الإرسال.</div>';
+                      console.error(err);
+                  });
+              });
+              </script>
+            </div>
+          </div>
+        </div>
+        
+        <!-- another Modal ()-->        
+        
+        <div class="modal fade" id="modal-autres-tests" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content container">
+              <div class="modal-header">
+                <div id="test-result-modal2" class="my-3"></div>               
+                <a href="index.php" class="btn btn-success my-5">Sortir</a>               
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- Modals - End
+          ================================================== -->
           <!-- Hero Section - End
           ================================================== -->
 
