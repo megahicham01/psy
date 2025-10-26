@@ -1,4 +1,7 @@
-<form id="formphq" action="submit_test_filiale.php" method="POST">
+<form id="formphq" action="test/submit_test_filiale.php" method="POST">
+<input type="hidden" name="id" value="<?= $row['id'] ?>">
+<input type="hidden" name="suicide_q" value="<?= $row['suicide_q'] ?>">
+<input type="hidden" name="comment_msg" value="<?= $row['comment_msg'] ?>">
         <!-- Question 1 -->
     <div class="mb-4">
         <label class="form-label fw-bold">1. Peu d’intérêt ou de plaisir à faire des choses :</label>
@@ -229,6 +232,6 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-success my-3">Afficher la réponse</button>
+    <button type="submit" class="btn btn-success my-3">Afficher le resultat de test</button>
 
 </form>

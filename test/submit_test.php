@@ -51,21 +51,32 @@ if($suicide_q === 1){
 
     $visibleTests=[];
     foreach($tests as $col=>$info){
-        if(!empty($row[$col]) && (int)$row[$col]===1){
-            $visibleTests[$col]=$info;
+    if(!empty($row[$col]) && (int)$row[$col]===1){
+        $visibleTests[$col]=$info;
 
-            // إدخال id, suicide_q, comment_msg لكل جدول اختبارات فرعية
-            $table = str_replace(['Display_'],['test_'], $col); // اختبار سريع للجدول
-            if($connexion->query("SHOW TABLES LIKE '".$table."'")->num_rows >0){
-                $stmt2=$connexion->prepare("
-                    INSERT INTO $table (id, suicide_q, comment_msg, timestamp) VALUES (?,?,?,NOW())
-                ");
-                $stmt2->bind_param('iis',$last_id,$suicide_q,$row['comment_msg']);
-                $stmt2->execute();
-                $stmt2->close();
-            }
+        // تحديد اسم الجدول الفرعي
+        $table_map = [
+            'Display_PHQ9'=>'test_phq',
+            'Display_GAD7'=>'test_gad',
+            'Display_PCL5'=>'test_pcl',
+            'Display_ISI'=>'test_isi',
+            'Display_AUDIT_C'=>'test_audit',
+            'Display_AUDIT'=>'test_audit',
+            'Display_DAST10'=>'test_dast'
+        ];
+        $table = $table_map[$col] ?? '';
+        if($table){
+            $stmt2 = $connexion->prepare("
+                INSERT INTO $table (id, suicide_q, comment_msg, timestamp) 
+                VALUES (?, ?, ?, NOW())
+            ");
+            $stmt2->bind_param('iis', $last_id, $suicide_q, $row['comment_msg']);
+            $stmt2->execute();
+            $stmt2->close();
         }
     }
+}
+
 
     if($visibleTests){
         $html .= '<div class="accordion accordion-flush mt-3" id="accordionTests">';
@@ -86,7 +97,7 @@ if($suicide_q === 1){
                         <form action="test/'.esc($info['file']).'" method="POST" class="subTestForm" data-result="result_'.esc($col).'">
                             <input type="hidden" name="base_id" value="'.(int)$last_id.'">
                             <?php include "test/'.esc($info['file']).'"; ?>
-                            <button type="submit" class="btn btn-success my-3">Afficher la réponse</button>
+                            <button type="submit" class="btn btn-success my-3">Afficher le test</button>
                         </form>
                         <div id="result_'.esc($col).'" class="mt-3"></div>
                     </div>
