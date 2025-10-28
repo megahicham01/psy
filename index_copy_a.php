@@ -461,16 +461,10 @@ document.addEventListener('submit', function(e){
         const resultDiv = document.getElementById('resultGeneral');
 
         fetch(e.target.action, {method:'POST', body: formData})
-        .then(r => r.text())
-          .then(html => { 
-              resultDiv.innerHTML = html;
-              // hide the main form so the user cannot resubmit, but keep the modal open
-              try{
-                if(e.target && e.target instanceof HTMLElement){
-                  e.target.style.display = 'none';
-                }
-              }catch(ex){ console.error(ex); }
-              resultDiv.scrollIntoView({behavior:'smooth'});
+            .then(r => r.text())
+            .then(html => { 
+                resultDiv.innerHTML = html;
+                resultDiv.scrollIntoView({behavior:'smooth'});
                 
             })
             .catch(err => { 
@@ -507,36 +501,12 @@ document.addEventListener('submit', function(e){
           // plain HTML fallback
           resultDiv.innerHTML = data;
         }
-        // hide the submitted form so user sees only the result
-        try{
-            if(e.target && e.target instanceof HTMLElement){
-                e.target.style.display = 'none';
-            }
-        }catch(ex){console.error(ex);} 
         resultDiv.scrollIntoView({behavior:'smooth'});
       })
       .catch(err => {
         resultDiv.innerHTML='<div class="alert alert-danger">Erreur lors de l\'envoi.</div>';
         console.error(err);
       });
-    }
-});
-// Click handler for header-level "Afficher le test" buttons: open collapse and reveal the hidden form wrapper
-document.addEventListener('click', function(e){
-    if(e.target && e.target.classList && e.target.classList.contains('showSubTestBtn')){
-        const targetId = e.target.dataset.target;
-        // open the accordion item (simulate click on the accordion-toggle)
-        const item = e.target.closest('.accordion-item');
-        if(item){
-            const toggle = item.querySelector('.accordion-button');
-            if(toggle && toggle.getAttribute('aria-expanded') === 'false'){
-                try{ toggle.click(); }catch(_){ /* ignore */ }
-            }
-        }
-        if(targetId){
-            const wrapper = document.getElementById(targetId);
-            if(wrapper){ wrapper.style.display = 'block'; wrapper.scrollIntoView({behavior:'smooth'}); }
-        }
     }
 });
 $('.subTestForm').on('submit', function(e){
@@ -552,11 +522,9 @@ $('.subTestForm').on('submit', function(e){
         dataType: 'json',
         success: function(res){
             if(res.comment_msg_test){
-        $resultDiv.html('<div class="alert alert-info">'+res.comment_msg_test+'</div>');
-        $form.hide();
+                $resultDiv.html('<div class="alert alert-info">'+res.comment_msg_test+'</div>');
             } else if(res.error){
-        $resultDiv.html('<div class="alert alert-danger">'+res.error+'</div>');
-        $form.hide();
+                $resultDiv.html('<div class="alert alert-danger">'+res.error+'</div>');
             }
         },
         error: function(){

@@ -461,18 +461,12 @@ document.addEventListener('submit', function(e){
         const resultDiv = document.getElementById('resultGeneral');
 
         fetch(e.target.action, {method:'POST', body: formData})
-        .then(r => r.text())
-          .then(html => { 
-              resultDiv.innerHTML = html;
-              // hide the main form so the user cannot resubmit, but keep the modal open
-              try{
-                if(e.target && e.target instanceof HTMLElement){
-                  e.target.style.display = 'none';
-                }
-              }catch(ex){ console.error(ex); }
-              resultDiv.scrollIntoView({behavior:'smooth'});
+            .then(r => r.text())
+            .then(html => { 
+                    resultDiv.innerHTML = html;
+                    resultDiv.scrollIntoView({behavior:'smooth'});
                 
-            })
+                })
             .catch(err => { 
                 resultDiv.innerHTML='<div class="alert alert-danger">Erreur lors de l\'envoi.</div>'; 
                 console.error(err); 

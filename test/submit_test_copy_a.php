@@ -55,13 +55,13 @@ try {
 
     /* -------- جدول الخريطة للجداول الفرعية (آمن) -------- */
     $tests = [
-        'Display_PHQ9'    => ['file'=>'phq.php','label'=>'PHQ-9 : Questionnaire pour évaluer la dépression.','table'=>'test_phq'],
-        'Display_GAD7'    => ['file'=>'gad.php','label'=>'GAD-7 : Questionnaire pour mesurer l’anxiété généralisée.','table'=>'test_gad'],
-        'Display_PCL5'    => ['file'=>'pcl.php','label'=>'PCL-5 : Questionnaire pour détecter le stress post-traumatique.','table'=>'test_pcl'],
-        'Display_ISI'     => ['file'=>'isi.php','label'=>'ISI : Questionnaire pour évaluer la gravité de l’insomnie.','table'=>'test_isi'],
+        'Display_PHQ9'    => ['file'=>'phq.php','label'=>'PHQ-9','table'=>'test_phq'],
+        'Display_GAD7'    => ['file'=>'gad.php','label'=>'GAD-7','table'=>'test_gad'],
+        'Display_PCL5'    => ['file'=>'pcl.php','label'=>'PCL-5','table'=>'test_pcl'],
+        'Display_ISI'     => ['file'=>'isi.php','label'=>'ISI','table'=>'test_isi'],
         'Display_AUDIT_C' => ['file'=>'audit_c.php','label'=>'AUDIT-C','table'=>'test_audit'],
-        'Display_AUDIT'   => ['file'=>'audit.php','label'=>'AUDIT : Questionnaire complet pour dépister l’alcoolisme.','table'=>'test_audit'],
-        'Display_DAST10'  => ['file'=>'dast.php','label'=>'DAST-10 : Questionnaire pour dépister l’usage problématique de drogues.','table'=>'test_dast'],
+        'Display_AUDIT'   => ['file'=>'audit.php','label'=>'AUDIT','table'=>'test_audit'],
+        'Display_DAST10'  => ['file'=>'dast.php','label'=>'DAST-10','table'=>'test_dast'],
     ];
 
     $visibleTests = [];
@@ -180,25 +180,19 @@ try {
     } else {
         if(!empty($visibleTests)){
             $html .= '<div class="accordion accordion-flush mt-3" id="accordionTests">';
+            $first = true;
             foreach($visibleTests as $col => $info){
                 $file = esc($info['file']);
                 $label = esc($info['label']);
                 $data_result = 'result_'.esc($col);
 
-                // wrapper id for the hidden form container (unique per test + last_id)
-                $wrapperId = 'formWrapper_'.preg_replace('/[^a-zA-Z0-9_\-]/', '_', $col). '_' . (int)$last_id;
-
                 $html .= '<div class="accordion-item">';
-                $html .= '<h2 class="accordion-header d-flex align-items-center justify-content-between" id="heading'.esc($col).'">';
-                // keep all items collapsed by default; user will click 'Afficher le test' to reveal the form
-                $html .= '<button class="accordion-button collapsed flex-grow-1 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'.esc($col).'" aria-expanded="false" aria-controls="collapse'.esc($col).'">';
+                $html .= '<h2 class="accordion-header" id="heading'.esc($col).'">';
+                $html .= '<button class="accordion-button '.($first?'':'collapsed').'" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'.esc($col).'" aria-expanded="'.($first?'true':'false').'" aria-controls="collapse'.esc($col).'">';
                 $html .= $label;
-                $html .= '</button>';
-                // small action button visible in the header to directly open the form
-                $html .= '<div class="ms-2"><button type="button" class="btn btn-sm btn-primary showSubTestBtn" data-target="' . $wrapperId . '">Afficher le test</button></div>';
-                $html .= '</h2>';
+                $html .= '</button></h2>';
 
-                $html .= '<div id="collapse'.esc($col).'" class="accordion-collapse collapse" aria-labelledby="heading'.esc($col).'" data-bs-parent="#accordionTests">';
+                $html .= '<div id="collapse'.esc($col).'" class="accordion-collapse collapse '.($first?'show':'').'" aria-labelledby="heading'.esc($col).'" data-bs-parent="#accordionTests">';
                 $html .= '<div class="accordion-body">';
 
                 // تضمين ملف الاختبار الفرعي server-side (يجب أن يطبع نموذج <form> مع action ل submit_test_filiale.php)
@@ -241,8 +235,7 @@ try {
                         $buffer = '<form method="POST" action="test/submit_test_filiale.php" class="subTestForm" data-result="' . $data_result . '">' . $hiddenInput . $buffer . '</form>';
                     }
 
-                        // wrap the (possibly modified) form into a hidden container (will be shown when user clicks header button)
-                        $html .= '<div id="' . $wrapperId . '" class="subtest-wrapper" style="display:none;">' . $buffer . '</div>';
+                    $html .= $buffer;
                 } else {
                     $html .= '<div class="alert alert-warning">Fichier de sous-test manquant: '.esc($info['file']).'</div>';
                 }
