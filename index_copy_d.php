@@ -519,7 +519,7 @@ document.addEventListener('submit', function(e){
           marker.id = 'ssrs_done_' + Date.now();
           var main = document.getElementById('mainTestResult');
           if(main) main.appendChild(marker);
-          // previously we showed a toast here; to disable toast messages we no longer display one
+          showToast('Test C-SSRS complété — vous pouvez maintenant effectuer les autres tests.');
         }
       }
     }catch(ex){console.error(ex);} 
@@ -534,8 +534,29 @@ document.addEventListener('submit', function(e){
 // Click handler for header-level "Afficher le test" buttons: open collapse and reveal the hidden form wrapper
 document.addEventListener('click', function(e){
   // Prevent opening accordion items that require C-SSRS before it's completed
-  // Previously we blocked opening other tests until C-SSRS was completed.
-  // That gating has been removed: allow users to open any accordion item immediately.
+  try{
+    var target = e.target;
+    if(target && target.classList && target.classList.contains('accordion-button')){
+      // only consider buttons inside our tests accordion
+      var acc = target.closest('#accordionTests');
+      if(acc){
+        // check if this button or the related collapse has the marker
+        var requires = (target.getAttribute('data-ssrs-required') === '1');
+        // collapse id from data-bs-target (e.g. #collapsePHQ)
+        var tb = target.getAttribute('data-bs-target');
+        if(!requires && tb){
+          var collapseEl = document.querySelector(tb);
+          if(collapseEl && collapseEl.getAttribute('data-ssrs-required') === '1') requires = true;
+        }
+        if(requires && !document.querySelector('[data-ssrs-completed="1"]')){
+          e.preventDefault();
+          e.stopPropagation();
+          showToast('Veuillez d\'abord effectuer le test C-SSRS pour évaluer le risque d\'automutilation.');
+          return;
+        }
+      }
+    }
+  }catch(_){ /* ignore */ }
     if(e.target && e.target.classList && e.target.classList.contains('showSubTestBtn')){
         const targetId = e.target.dataset.target;
         // open the accordion item (simulate click on the accordion-toggle)
@@ -548,7 +569,14 @@ document.addEventListener('click', function(e){
         }
     if(targetId){
       const wrapper = document.getElementById(targetId);
-      // Always reveal the wrapper when the header button is clicked
+      // if wrapper requires SSRS, block until completed
+      if(wrapper && wrapper.dataset && wrapper.dataset.ssrsRequired === '1'){
+        // check for completion marker
+        if(!document.querySelector('[data-ssrs-completed="1"]')){
+          showToast('Veuillez d\'abord effectuer le test C-SSRS pour évaluer le risque d\'automutilation.');
+          return;
+        }
+      }
       if(wrapper){ wrapper.style.display = 'block'; wrapper.scrollIntoView({behavior:'smooth'}); }
     }
     }
@@ -556,8 +584,18 @@ document.addEventListener('click', function(e){
 // small helper to show Bootstrap toast
 function showToast(message){
   try{
-    // Toasts are disabled by request. Keep this function as a no-op so other calls are harmless.
-    console.debug('toast suppressed:', message);
+    const id = 'toast_' + Date.now();
+    const toastHtml = `<div id="${id}" class="toast align-items-center text-bg-primary border-0 position-fixed" role="alert" aria-live="assertive" aria-atomic="true" style="top:1rem;right:1rem;z-index:12000;">
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      </div>`;
+    document.body.insertAdjacentHTML('beforeend', toastHtml);
+    const el = document.getElementById(id);
+    const bs = new bootstrap.Toast(el, { delay: 5000 });
+    bs.show();
+    el.addEventListener('hidden.bs.toast', function(){ el.remove(); });
   }catch(ex){ console.warn('Toast failed', ex); alert(message); }
 }
 $('.subTestForm').on('submit', function(e){
@@ -577,19 +615,19 @@ $('.subTestForm').on('submit', function(e){
     $form.hide();
     // if this was SSRS form, mark completed so other tests can open
     try{
-          if($form.attr('id') === 'formssrs'){
-            $('<div data-ssrs-completed="1"></div>').appendTo('#mainTestResult');
-            // toast disabled
-          }
+      if($form.attr('id') === 'formssrs'){
+        $('<div data-ssrs-completed="1"></div>').appendTo('#mainTestResult');
+        showToast('Test C-SSRS complété — vous pouvez maintenant effectuer les autres tests.');
+      }
     }catch(ex){console.warn(ex);} 
             } else if(res.error){
     $resultDiv.html('<div class="alert alert-danger">'+res.error+'</div>');
     $form.hide();
     try{
-          if($form.attr('id') === 'formssrs'){
-            $('<div data-ssrs-completed="1"></div>').appendTo('#mainTestResult');
-            // toast disabled
-          }
+      if($form.attr('id') === 'formssrs'){
+        $('<div data-ssrs-completed="1"></div>').appendTo('#mainTestResult');
+        showToast('Test C-SSRS complété — vous pouvez maintenant effectuer les autres tests.');
+      }
     }catch(ex){console.warn(ex);} 
             }
         },
@@ -831,28 +869,15 @@ $('.subTestForm').on('submit', function(e){
 
      <script>
       document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.btn-close, [data-bs-dismiss="modal"]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
-            backdrop.remove();
+          document.querySelectorAll('.btn-close, [data-bs-dismiss="modal"]').forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                  document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+                      backdrop.remove();
+                  });
+                  document.body.classList.remove('modal-open');
+                  document.body.style.overflow = 'auto'; 
+              });
           });
-          document.body.classList.remove('modal-open');
-          document.body.style.overflow = 'auto'; 
-
-          // If this close button belongs to the main test modal, reload the page after the modal is hidden
-          try{
-            var modalEl = document.getElementById('modalTestGeneral');
-            if(modalEl && modalEl.contains(btn)){
-              // attach one-time hidden event to reload after bootstrap finishes hiding the modal
-              var _handler = function(){
-                try{ location.reload(); }catch(_){ /* ignore */ }
-                modalEl.removeEventListener('hidden.bs.modal', _handler);
-              };
-              modalEl.addEventListener('hidden.bs.modal', _handler);
-            }
-          }catch(_){ /* ignore */ }
-        });
-      });
       });
     </script>
   

@@ -36,7 +36,6 @@ try {
     );
 
     if(!$stmt->execute()){
-        $ssrs_done_flag = false;
         error_log('[submit_test] INSERT test_base failed: '.$stmt->error);
         throw new Exception('حدث خطأ أثناء تسجيل الاختبار الأساسي.');
     }
@@ -55,120 +54,81 @@ try {
     }
 
     /* -------- جدول الخريطة للجداول الفرعية (آمن) -------- */
-    // نستخدم مفتاح عام لكل اختبار ونسمح بوجود أعلام عرض متعددة (_J أو _C)
     $tests = [
-        'PHQ9' => [
-            'display_keys' => ['Display_PHQ9','Display_PHQ9_J'],
-            'file'=>'phq.php','label'=>'PHQ-9 : Questionnaire pour évaluer la dépression.','table'=>'test_phq'
-        ],
-        'GAD7' => [
-            'display_keys' => ['Display_GAD7','Display_GAD7_J'],
-            'file'=>'gad.php','label'=>'GAD-7 : Questionnaire pour mesurer l’anxiété généralisée.','table'=>'test_gad'
-        ],
-        'PCL5' => [
-            'display_keys' => ['Display_PCL5','Display_PCL5_J'],
-            'file'=>'pcl.php','label'=>'PCL-5 : Questionnaire pour détecter le stress post-traumatique.','table'=>'test_pcl'
-        ],
-        'ISI' => [
-            'display_keys' => ['Display_ISI','Display_ISI_J'],
-            'file'=>'isi.php','label'=>'ISI : Questionnaire pour évaluer la gravité de l’insomnie.','table'=>'test_isi'
-        ],
-        'AUDIT' => [
-            // قد تأتي إشارة AUDIT من Display_AUDIT أو Display_AUDIT_C أو Display_AUDIT_J
-            'display_keys' => ['Display_AUDIT','Display_AUDIT_C','Display_AUDIT_J'],
-            'file'=>'audit.php','label'=>'AUDIT : Questionnaire complet pour dépister l’alcoolisme.','table'=>'test_audit'
-        ],
-        'DAST' => [
-            'display_keys' => ['Display_DAST10','Display_DAST_J'],
-            'file'=>'dast.php','label'=>'DAST-10 : Questionnaire pour dépister l’usage problématique de drogues.','table'=>'test_dast'
-        ],
+        'Display_PHQ9'    => ['file'=>'phq.php','label'=>'PHQ-9 : Questionnaire pour évaluer la dépression.','table'=>'test_phq'],
+        'Display_GAD7'    => ['file'=>'gad.php','label'=>'GAD-7 : Questionnaire pour mesurer l’anxiété généralisée.','table'=>'test_gad'],
+        'Display_PCL5'    => ['file'=>'pcl.php','label'=>'PCL-5 : Questionnaire pour détecter le stress post-traumatique.','table'=>'test_pcl'],
+        'Display_ISI'     => ['file'=>'isi.php','label'=>'ISI : Questionnaire pour évaluer la gravité de l’insomnie.','table'=>'test_isi'],
+        'Display_AUDIT'   => ['file'=>'audit.php','label'=>'AUDIT : Questionnaire complet pour dépister l’alcoolisme.','table'=>'test_audit'],
+        'Display_DAST10'  => ['file'=>'dast.php','label'=>'DAST-10 : Questionnaire pour dépister l’usage problématique de drogues.','table'=>'test_dast'],
     ];
 
     $visibleTests = [];
 
-    // سجل مختصر لحالة كل display key (diagnostic)
+    // سجل مختصر لحالة الـ row للـ display flags (diagnostic)
     $displayStates = [];
-    foreach($tests as $key => $info){
-        foreach($info['display_keys'] as $dk){
-            $displayStates[$dk] = $row[$dk] ?? null;
-        }
+    foreach(array_keys($tests) as $c){
+        $displayStates[$c] = $row[$c] ?? null;
     }
     error_log('[submit_test] display flags: ' . json_encode($displayStates));
 
-    // حساب الاختبارات المرئية: السلوك يعتمد على suicide_q
-    foreach($tests as $key => $info){
-        $isVisible = false;
-        // إذا suicide_q === 1 فقد تعتمد الرؤية على مفاتيح _J أولاً، لكن نقبل أي مفتاح له قيمة 1
-        foreach($info['display_keys'] as $dk){
-            if(isset($row[$dk]) && (int)$row[$dk] === 1){
-                $isVisible = true; break;
+    foreach($tests as $col => $info){
+        if(!empty($row[$col]) && (int)$row[$col] === 1){
+            $visibleTests[$col] = $info;
+            $table = $info['table'];
+
+            // escape اسم الجدول (آمن لأن القائمة ثابتة) واستخدم backticks
+            $table_safe = '`' . $connexion->real_escape_string($table) . '`';
+
+            // تحضير استعلام CHECK باستخدام اسم الجدول المحمي
+            $sqlChk = "SELECT COUNT(*) as cnt FROM $table_safe WHERE id = ?";
+            $chk = $connexion->prepare($sqlChk);
+            if(!$chk){
+                error_log(sprintf('[submit_test] prepare CHECK failed for table %s: %s', $table, $connexion->error));
+                continue;
             }
-        }
-        if($isVisible){
-            $visibleTests[$key] = $info;
-        }
-    }
 
-    // سلوك العرض النهائي:
-    // - إذا suicide_q == 0 و لا توجد اختبارات مرئية => نعرض فقط comment_msg (لن ننشئ accordion)
-    // - خلاف ذلك ننشئ accordion للاختبارات المرئية. لاحقاً إذا suicide_q==1 سنضيف C-SSRS في أعلى القائمة
+            $chk->bind_param('i', $last_id);
+            if(!$chk->execute()){
+                error_log(sprintf('[submit_test] execute CHECK failed for table %s: %s', $table, $chk->error));
+                $chk->close();
+                continue;
+            }
 
-    // الآن أنشئ صفوف مبدئية. سلوك خاص عندما suicide_q === 1:
-    // - إذا suicide_q === 1 نضمن وجود صفوف مبدئية لكل جداول الاختبارات (test_phq, test_gad, ...)
-    // - خلاف ذلك ننشئ الصفوف فقط للاختبارات المرئية
-    $ensureList = [];
-    if($suicide_q === 1){
-        // نضمّن كل الاختبارات المعرفة في الخريطة
-        $ensureList = $tests;
-    } else {
-        $ensureList = $visibleTests;
-    }
-
-    foreach($ensureList as $key => $info){
-        $table = $info['table'];
-        $table_safe = '`' . $connexion->real_escape_string($table) . '`';
-
-        $sqlChk = "SELECT COUNT(*) as cnt FROM $table_safe WHERE id = ?";
-        $chk = $connexion->prepare($sqlChk);
-        if(!$chk){
-            error_log(sprintf('[submit_test] prepare CHECK failed for table %s: %s', $table, $connexion->error));
-            continue;
-        }
-        $chk->bind_param('i', $last_id);
-        if(!$chk->execute()){
-            error_log(sprintf('[submit_test] execute CHECK failed for table %s: %s', $table, $chk->error));
+            // جمع النتيجة (دعم بديل لبيئات لا تدعم get_result)
+            $cnt = 0;
+            $chk->bind_result($cnt);
+            $chk->fetch();
             $chk->close();
-            continue;
-        }
-        $cnt = 0;
-        $chk->bind_result($cnt);
-        $chk->fetch();
-        $chk->close();
 
-        error_log(sprintf('[submit_test] check %s id=%d exists=%d', $table, $last_id, (int)$cnt));
+            error_log(sprintf('[submit_test] check %s id=%d exists=%d', $table, $last_id, (int)$cnt));
 
-        if((int)$cnt === 0){
-            $sqlIns = "INSERT INTO $table_safe (id, suicide_q, comment_msg, timestamp) VALUES (?, ?, ?, NOW())";
-            $ins = $connexion->prepare($sqlIns);
-            if(!$ins){
-                error_log("[submit_test] prepare INSERT into $table failed: ".$connexion->error);
-                continue;
-            }
-            $comment_clean = isset($row['comment_msg']) ? $row['comment_msg'] : '';
-            $ins->bind_param('iis', $last_id, $suicide_q, $comment_clean);
-            if(!$ins->execute()){
-                error_log("[submit_test] execute INSERT into $table failed: ".$ins->error);
+            if((int)$cnt === 0){
+                // INSERT مبدئي في الجدول الفرعي (id من test_base)
+                $sqlIns = "INSERT INTO $table_safe (id, suicide_q, comment_msg, timestamp) VALUES (?, ?, ?, NOW())";
+                $ins = $connexion->prepare($sqlIns);
+                if(!$ins){
+                    error_log("[submit_test] prepare INSERT into $table failed: ".$connexion->error);
+                    continue;
+                }
+
+                $comment_clean = isset($row['comment_msg']) ? $row['comment_msg'] : '';
+
+                $ins->bind_param('iis', $last_id, $suicide_q, $comment_clean);
+                if(!$ins->execute()){
+                    error_log("[submit_test] execute INSERT into $table failed: ".$ins->error);
+                    $ins->close();
+                    continue;
+                }
+                error_log(sprintf('[submit_test] inserted into %s id=%d', $table, $last_id));
                 $ins->close();
-                continue;
             }
-            error_log(sprintf('[submit_test] inserted into %s id=%d', $table, $last_id));
-            $ins->close();
         }
     }
 
-    // إذا كان مؤشر الانتحار مفعلًا، تأكد أيضًا من إنشاء صف C-SSRS في test_ssrs
+    // إذا كان مؤشر الانتحار مفعلًا، تأكد أيضًا من إنشاء صف C-SSRS في test_srss
     if($suicide_q === 1){
-        $ssrs_table = '`' . $connexion->real_escape_string('test_ssrs') . '`';
+        $ssrs_table = '`' . $connexion->real_escape_string('test_srss') . '`';
         $chkS = $connexion->prepare("SELECT COUNT(*) as cnt FROM $ssrs_table WHERE id = ?");
         if($chkS){
             $chkS->bind_param('i', $last_id);
@@ -183,44 +143,25 @@ try {
                         $comment_clean = isset($row['comment_msg']) ? $row['comment_msg'] : '';
                         $insS->bind_param('iis', $last_id, $suicide_q, $comment_clean);
                         if(!$insS->execute()){
-                            error_log('[submit_test] INSERT into test_ssrs failed: ' . $insS->error);
+                            error_log('[submit_test] INSERT into test_srss failed: ' . $insS->error);
                         } else {
-                            error_log(sprintf('[submit_test] inserted into test_ssrs id=%d', $last_id));
+                            error_log(sprintf('[submit_test] inserted into test_srss id=%d', $last_id));
                         }
                         $insS->close();
                     } else {
-                        error_log('[submit_test] prepare INSERT into test_ssrs failed: ' . $connexion->error);
+                        error_log('[submit_test] prepare INSERT into test_srss failed: ' . $connexion->error);
                     }
                 }
             } else {
-                error_log('[submit_test] execute check test_ssrs failed: ' . $chkS->error);
+                error_log('[submit_test] execute check test_srss failed: ' . $chkS->error);
                 $chkS->close();
             }
         } else {
-            error_log('[submit_test] prepare check test_ssrs failed: ' . $connexion->error);
+            error_log('[submit_test] prepare check test_srss failed: ' . $connexion->error);
         }
     }
 
     error_log('[submit_test] commit');
-        // تحقق من وجود comment_msg_test في test_srss (لتحديد ما إذا كان C-SSRS قد أُنجز بالفعل)
-    $chkS2 = $connexion->prepare("SELECT comment_msg_test FROM `test_ssrs` WHERE id = ? LIMIT 1");
-        if($chkS2){
-            $chkS2->bind_param('i', $last_id);
-            if($chkS2->execute()){
-                if(method_exists($chkS2, 'get_result')){
-                    $resS2 = $chkS2->get_result();
-                    $rS2 = $resS2 ? $resS2->fetch_assoc() : null;
-                } else {
-                    $chkS2->bind_result($cm);
-                    $chkS2->fetch();
-                    $rS2 = ['comment_msg_test' => $cm ?? null];
-                }
-                if(!empty($rS2['comment_msg_test'])){
-                    $ssrs_done_flag = true;
-                }
-            }
-            $chkS2->close();
-        }
     $connexion->commit();
 
     // post-commit diagnostic check (آمن: نستخدم prepared ونتحقق إن وجدت get_result وإلا bind_result)
@@ -267,18 +208,9 @@ try {
     /* -------- بناء HTML الاستجابة -------- */
     $html = '<div id="mainTestResult">';
     $html .= '<h4>'.esc($row['comment_msg']).'</h4>';
-    // إذا وجدنا أن C-SSRS قد أُنجز بالفعل نضيف علامة مخفية ليستعملها client-side
-    if(!empty($ssrs_done_flag)){
-        $html .= '<div data-ssrs-completed="1" style="display:none"></div>';
-    }
 
-    // تحديد أي مجموعة اختبارات سنعرضها في الأكورديون
-    // - إذا كان suicide_q === 1 نعرض كل الاختبارات (بما في ذلك تلك التي قد تكون display==0)
-    // - خلاف ذلك نعرض فقط الاختبارات المرئية المحسوبة سابقاً
-    $renderTests = ($suicide_q === 1) ? $tests : $visibleTests;
-
-    // Always render accordion of subtests. If suicide flag set, include C-SSRS first.
-    if(!empty($renderTests) || $suicide_q === 1){
+    // Always render accordion of subtests. If suicide flag set, include C-SSRS first and mark other tests as requiring SSRS
+    if(!empty($visibleTests) || $suicide_q === 1){
             $html .= '<div class="accordion accordion-flush mt-3" id="accordionTests">';
 
             // If suicide flag set, render C-SSRS as the first accordion item
@@ -340,8 +272,7 @@ try {
                 $html .= '</div></div></div>';
             }
 
-            // iterate over the set we decided to render (all tests when suicide_q==1, otherwise visible tests)
-            foreach($renderTests as $col => $info){
+            foreach($visibleTests as $col => $info){
                 $file = esc($info['file']);
                 $label = esc($info['label']);
                 $data_result = 'result_'.esc($col);
