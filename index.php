@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Home - SihaNafsia</title>
-    <link rel="shortcut icon" href="assets/images/site_logo/Logo.png">
+    <link rel="shortcut icon" href="assets/images/site_logo/Logo.PNG">
     
     <!-- Fraimwork - CSS Include -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -73,7 +73,7 @@
             <div class="col-lg-3">
               <div class="site_logo">
                 <a class="site_link" href="expert.php">
-                  <img src="assets/images/site_logo/Logo.png" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
+                  <img src="assets/images/site_logo/Logo.PNG" alt="Site Logo – Talking Minds – Psychotherapist Site Template" style="height: 5rem;">
                 </a>
               </div>
             </div>
@@ -118,11 +118,8 @@
               <div class="row align-items-center">
                 <div class="col-lg-6">
                   <div class="hero_content_wrap">
-                    <h1 class="heading_text">
-                        Sihanafsia pour une vie meilleure.
-                    </h1>
-                    
-                    
+                    <h1 class="heading_text ">SihaNafsia <br> pour une vie meilleure.</h1> 
+                                        
                     <p class="heading_description">
                         Sihanafsia vous propose une série de tests d’auto-évaluation <br> pour mieux comprendre votre bien-être psychologique. </p> 
                     <p class="heading_description">  
@@ -206,19 +203,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q1" id="r1q1" value="jamais"  required>
-                            <label class="form-check-label" for="r1q1">jamais</label>
+                            <label class="form-check-label" for="r1q1">Pas du tout</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q1" id="r2q1" value="quelques jours">
-                            <label class="form-check-label" for="r2q1">quelques jours</label>
+                            <label class="form-check-label" for="r2q1">Seulement certains jours</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q1" id="r3q1" value="souvent">
-                            <label class="form-check-label" for="r3q1">souvent</label>
+                            <label class="form-check-label" for="r3q1">Assez souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q1" id="r4q1" value="toujours">
-                            <label class="form-check-label" for="r4q1">toujours</label>
+                            <label class="form-check-label" for="r4q1">Presque tout le temps</label>
                         </div>
                     </div>
                 </div>
@@ -229,19 +226,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q2" id="r1q2" value="jamais"  required>
-                            <label class="form-check-label" for="r1q2">jamais</label>
+                            <label class="form-check-label" for="r1q2">Jamais de difficultés</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q2" id="r2q2" value="quelques jours">
-                            <label class="form-check-label" for="r2q2">quelques jours</label>
+                            <label class="form-check-label" for="r2q2">À l’occasion</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q2" id="r3q2" value="souvent">
-                            <label class="form-check-label" for="r3q2">souvent</label>
+                            <label class="form-check-label" for="r3q2">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q2" id="r4q2" value="toujours">
-                            <label class="form-check-label" for="r4q2">toujours</label>
+                            <label class="form-check-label" for="r4q2">Quasi tout le temps</label>
                         </div>
                     </div>
                 </div>
@@ -252,19 +249,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q3" id="r1q3" value="jamais"  required>
-                            <label class="form-check-label" for="r1q3">jamais</label>
+                            <label class="form-check-label" for="r1q3">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q3" id="r2q3" value="quelques jours">
-                            <label class="form-check-label" for="r2q3">quelques jours</label>
+                            <label class="form-check-label" for="r2q3">Par moments</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q3" id="r3q3" value="souvent">
-                            <label class="form-check-label" for="r3q3">souvent</label>
+                            <label class="form-check-label" for="r3q3">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q3" id="r4q3" value="toujours">
-                            <label class="form-check-label" for="r4q3">toujours</label>
+                            <label class="form-check-label" for="r4q3">Toujours</label>
                         </div>
                     </div>
                 </div>
@@ -274,19 +271,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q4" id="r1q4" value="jamais"  required>
-                            <label class="form-check-label" for="r1q4">jamais</label>
+                            <label class="form-check-label" for="r1q4">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q4" id="r2q4" value="quelques jours">
-                            <label class="form-check-label" for="r2q4">quelques jours</label>
+                            <label class="form-check-label" for="r2q4">Quelques fois</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q4" id="r3q4" value="souvent">
-                            <label class="form-check-label" for="r3q4">souvent</label>
+                            <label class="form-check-label" for="r3q4">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q4" id="r4q4" value="toujours">
-                            <label class="form-check-label" for="r4q4">toujours</label>
+                            <label class="form-check-label" for="r4q4">Presque toujours</label>
                         </div>
                     </div>
                 </div>
@@ -297,19 +294,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q5" id="r1q5" value="jamais"  required>
-                            <label class="form-check-label" for="r1q5">jamais</label>
+                            <label class="form-check-label" for="r1q5">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q5" id="r2q5" value="quelques jours">
-                            <label class="form-check-label" for="r2q5">quelques jours</label>
+                            <label class="form-check-label" for="r2q5">Parfois</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q5" id="r3q5" value="souvent">
-                            <label class="form-check-label" for="r3q5">souvent</label>
+                            <label class="form-check-label" for="r3q5">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q5" id="r4q5" value="toujours">
-                            <label class="form-check-label" for="r4q5">toujours</label>
+                            <label class="form-check-label" for="r4q5">Toujours</label>
                         </div>
                     </div>
                 </div>
@@ -320,19 +317,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q6" id="r1q6" value="jamais"  required>
-                            <label class="form-check-label" for="r1q6">jamais</label>
+                            <label class="form-check-label" for="r1q6">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q6" id="r2q6" value="quelques jours">
-                            <label class="form-check-label" for="r2q6">quelques jours</label>
+                            <label class="form-check-label" for="r2q6">De temps en temps</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q6" id="r3q6" value="souvent">
-                            <label class="form-check-label" for="r3q6">souvent</label>
+                            <label class="form-check-label" for="r3q6">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q6" id="r4q6" value="toujours">
-                            <label class="form-check-label" for="r4q6">toujours</label>
+                            <label class="form-check-label" for="r4q6">Presque toujours</label>
                         </div>
                     </div>
                 </div>
@@ -343,19 +340,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q7" id="r1q7" value="jamais"  required>
-                            <label class="form-check-label" for="r1q7">jamais</label>
+                            <label class="form-check-label" for="r1q7">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q7" id="r2q7" value="quelques jours">
-                            <label class="form-check-label" for="r2q7">quelques jours</label>
+                            <label class="form-check-label" for="r2q7">Parfois</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q7" id="r3q7" value="souvent">
-                            <label class="form-check-label" for="r3q7">souvent</label>
+                            <label class="form-check-label" for="r3q7">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q7" id="r4q7" value="toujours">
-                            <label class="form-check-label" for="r4q7">toujours</label>
+                            <label class="form-check-label" for="r4q7">Toujours</label>
                         </div>
                     </div>
                 </div>
@@ -365,19 +362,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q8" id="r1q8" value="jamais"  required>
-                            <label class="form-check-label" for="r1q8">jamais</label>
+                            <label class="form-check-label" for="r1q8">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q8" id="r2q8" value="quelques jours">
-                            <label class="form-check-label" for="r2q8">quelques jours</label>
+                            <label class="form-check-label" for="r2q8">Occasionnellement</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q8" id="r3q8" value="souvent">
-                            <label class="form-check-label" for="r3q8">souvent</label>
+                            <label class="form-check-label" for="r3q8">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q8" id="r4q8" value="toujours">
-                            <label class="form-check-label" for="r4q8">toujours</label>
+                            <label class="form-check-label" for="r4q8">Presque toujours</label>
                         </div>
                     </div>
                 </div>
@@ -387,19 +384,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q9" id="r1q9" value="jamais"  required>
-                            <label class="form-check-label" for="r1q9">jamais</label>
+                            <label class="form-check-label" for="r1q9">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q9" id="r2q9" value="quelques jours">
-                            <label class="form-check-label" for="r2q9">quelques jours</label>
+                            <label class="form-check-label" for="r2q9">Quelques jours</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q9" id="r3q9" value="souvent">
-                            <label class="form-check-label" for="r3q9">souvent</label>
+                            <label class="form-check-label" for="r3q9">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q9" id="r4q9" value="toujours">
-                            <label class="form-check-label" for="r4q9">toujours</label>
+                            <label class="form-check-label" for="r4q9">Toujours</label>
                         </div>
                     </div>
                 </div>
@@ -409,19 +406,19 @@ foreach($tests as $col => $info){
                     <div class="d-flex justify-content-evenly flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q10" id="r1q10" value="jamais"  required>
-                            <label class="form-check-label" for="r1q10">jamais</label>
+                            <label class="form-check-label" for="r1q10">Jamais</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q10" id="r2q10" value="quelques jours">
-                            <label class="form-check-label" for="r2q10">quelques jours</label>
+                            <label class="form-check-label" for="r2q10">À l’occasion</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q10" id="r3q10" value="souvent">
-                            <label class="form-check-label" for="r3q10">souvent</label>
+                            <label class="form-check-label" for="r3q10">Souvent</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="q10" id="r4q10" value="toujours">
-                            <label class="form-check-label" for="r4q10">toujours</label>
+                            <label class="form-check-label" for="r4q10">Toujours</label>
                         </div>
                     </div>
                 </div>
@@ -533,9 +530,7 @@ document.addEventListener('submit', function(e){
 });
 // Click handler for header-level "Afficher le test" buttons: open collapse and reveal the hidden form wrapper
 document.addEventListener('click', function(e){
-  // Prevent opening accordion items that require C-SSRS before it's completed
-  // Previously we blocked opening other tests until C-SSRS was completed.
-  // That gating has been removed: allow users to open any accordion item immediately.
+  // SSRS gating removed: allow accordion buttons to open regardless of C-SSRS completion
     if(e.target && e.target.classList && e.target.classList.contains('showSubTestBtn')){
         const targetId = e.target.dataset.target;
         // open the accordion item (simulate click on the accordion-toggle)
@@ -600,25 +595,104 @@ $('.subTestForm').on('submit', function(e){
 });
 
 </script>
-
-
-
           <!-- Hero Section - End
           ================================================== -->
 
           <!-- slide Section - start
           ================================================== -->
 
-          <section class="service_section section_space_lg bg_primary_light">
-            <div class="container">
-              <div class="section_heading text-center">
-                <h2 class="section_heading_text">l'espoir</h2>
-                <p class="section_heading_description mb-0 ">
-                  "Il y a de l'espoir, même quand votre cerveau vous dit le contraire."<br> – John Green
-                </p>
+          <div id="hopeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+            <div class="carousel-inner">
+
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <section class="service_section section_space_lg bg_primary_light">
+                  <div class="container">
+                    <div class="section_heading text-center">
+                      <h2 class="section_heading_text">l'espoir</h2>
+                      <p class="section_heading_description mb-0 ">
+                        "Il y a de l'espoir, même quand votre cerveau vous dit le contraire."<br> – John Green
+                      </p>
+                    </div>
+                  </div>
+                </section>
               </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <section class="service_section section_space_lg bg_primary_light">
+                  <div class="container">
+                    <div class="section_heading text-center">
+                      <h2 class="section_heading_text">Sagesse</h2>
+                      <p class="section_heading_description mb-0 ">
+                        "Ce qui ne me tue pas me rend plus fort."<br> – Friedrich Nietzsche
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-item">
+                <section class="service_section section_space_lg bg_primary_light">
+                  <div class="container">
+                    <div class="section_heading text-center">
+                      <h2 class="section_heading_text">Vie</h2>
+                      <p class="section_heading_description mb-0 ">
+                        "Le bonheur n'est pas quelque chose de prêt à l'emploi. Il vient de vos propres actions."<br> – Le Dalaï-Lama
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="carousel-item">
+                <section class="service_section section_space_lg bg_primary_light">
+                  <div class="container">
+                    <div class="section_heading text-center">
+                      <h2 class="section_heading_text">Courage</h2>
+                      <p class="section_heading_description mb-0 ">
+                        "La seule chose que nous ayons à craindre est la peur elle-même."<br> – Franklin D. Roosevelt
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="carousel-item">
+                <section class="service_section section_space_lg bg_primary_light">
+                  <div class="container">
+                    <div class="section_heading text-center">
+                      <h2 class="section_heading_text">Pensée</h2>
+                      <p class="section_heading_description mb-0 ">
+                        "Je pense, donc je suis."<br> – René Descartes
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Slide 6 -->
+              <div class="carousel-item">
+                <section class="service_section section_space_lg bg_primary_light">
+                  <div class="container">
+                    <div class="section_heading text-center">
+                      <h2 class="section_heading_text">Destin</h2>
+                      <p class="section_heading_description mb-0 ">
+                        "L’homme est condamné à être libre."<br> – Jean-Paul Sartre
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
             </div>
-          </section>
+          </div> 
+          <!-- slide Section - end
+          ================================================== -->
+
 
           <div class="page-template page-template-page-fullscreen-slider page-template-page-fullscreen-slider-php page page_with_abs_header dark_color_scheme">
             <div class="gt3_preloader">
@@ -743,7 +817,7 @@ $('.subTestForm').on('submit', function(e){
               <div class="col-lg-3">
                 <div class="site_logo">
                   <a class="site_link" href="expert.php">
-                    <img src="assets/images/site_logo/Logo.png" style="height: 7rem;" alt="Site Logo – Talking Minds – Psychotherapist Site Template">
+                    <img src="assets/images/site_logo/Logo.PNG" style="height: 7rem;" alt="Site Logo – Talking Minds – Psychotherapist Site Template">
                   </a>
                 </div>
               </div>

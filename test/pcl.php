@@ -271,6 +271,7 @@
     </div>
     <!-- Question 11 -->
     <div class="mb-4">
+        <p>Je suis conscient que ces questions peuvent être fatigantes, mais tu es sur le point de les finir et d'obtenir votre réponse.</p>
         <label class="form-label fw-bold">11. Avoir de forts sentiments négatifs tels que la peur, l’horreur, la colère, la culpabilité ou la honte ?</label>
         <div class="d-flex justify-content-evenly flex-wrap">
             <div class="form-check">

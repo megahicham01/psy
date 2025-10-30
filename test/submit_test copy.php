@@ -293,7 +293,7 @@ try {
                 $html .= '<button class="accordion-button collapsed flex-grow-1 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_ssrs" aria-expanded="false" aria-controls="collapse_ssrs">';
                 $html .= esc($ssrs_label);
                 $html .= '</button>';
-                // Emphasize C-SSRS by using a danger (red) button
+                // Make the C-SSRS header button red to signal urgency
                 $html .= '<div class="ms-2"><button type="button" class="btn btn-sm btn-danger showSubTestBtn" data-target="' . $ssrs_wrapperId . '">Afficher le test</button></div>';
                 $html .= '</h2>';
                 $html .= '<div id="collapse_ssrs" class="accordion-collapse collapse" aria-labelledby="heading_ssrs" data-bs-parent="#accordionTests">';

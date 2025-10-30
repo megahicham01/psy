@@ -3802,7 +3802,7 @@ Responsive For Mobile & Tablet Devices
     --bs-body-line-height-md: 26px;
   }
   .hero_section .heading_text {
-    font-size: 36px;
+    font-size: 34px;
   }
   .hero_section_counter > li {
     width: 50%;
@@ -3920,8 +3920,8 @@ Responsive For Mobile & Tablet Devices
     margin-right: -50px;
   }
   .hero_section .heading_text {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 30px;
   }
   .section_heading .section_heading_text {
     font-size: 24px;
