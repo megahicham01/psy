@@ -203,6 +203,39 @@ $resFetch = $stmtFetch->get_result();
 $row = $resFetch->fetch_assoc();
 $stmtFetch->close();
 
-echo json_encode(['comment_msg_test' => $row['comment_msg_test'] ?? '']);
+// بعد جلب comment_msg_test من جدول الفرعي، نُحدّث العمود المخصص في test_base
+$commentVal = $row['comment_msg_test'] ?? '';
+// خريطة الجداول الفرعية إلى أعمدة test_base
+$baseColumnMap = [
+    'test_phq' => 'test_phq',
+    'test_gad' => 'test_gad',
+    'test_isi' => 'test_isi',
+    'test_dast' => 'test_dast',
+    'test_pcl' => 'test_pcl',
+    'test_audit' => 'test_audit',
+    'test_ssrs' => 'test_ssrs'
+];
+
+if(isset($baseColumnMap[$table])){
+    $col = $baseColumnMap[$table];
+    // نتحقق من أن اسم العمود صالح (قائمة بيضاء)
+    if(preg_match('/^[a-z0-9_]+$/i', $col)){
+        $sqlUpBase = "UPDATE test_base SET $col = ? WHERE id = ?";
+        $stmtUp = $connexion->prepare($sqlUpBase);
+        if($stmtUp){
+            $stmtUp->bind_param('si', $commentVal, $id);
+            if(!$stmtUp->execute()){
+                error_log('[submit_test_filiale] failed to update test_base: ' . $stmtUp->error);
+            } else {
+                error_log(sprintf('[submit_test_filiale] test_base updated: id=%d col=%s', $id, $col));
+            }
+            $stmtUp->close();
+        } else {
+            error_log('[submit_test_filiale] prepare update test_base failed: ' . $connexion->error);
+        }
+    }
+}
+
+echo json_encode(['comment_msg_test' => $commentVal]);
 exit;
 ?>

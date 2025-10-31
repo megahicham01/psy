@@ -3,31 +3,29 @@
 <input type="hidden" name="suicide_q" value="<?= $row['suicide_q'] ?>">
 <input type="hidden" name="comment_msg" value="<?= $row['comment_msg'] ?>">
     <!-- Question AUDIT 1 -->
-  <div class="mb-4">
-      <label class="form-label fw-bold">1. À quelle fréquence buvez-vous une boisson contenant de l’alcool ?</label>
-      <div class="d-flex justify-content-evenly flex-wrap">
-          <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="r1audit1" value="Jamais" required>
-              <label class="form-check-label" for="r1audit1">Jamais</label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="r2audit1" value="Mensuel ou moins">
-              <label class="form-check-label" for="r2audit1">Mensuel ou moins</label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="r3audit1" value="2-4 fois par mois">
-              <label class="form-check-label" for="r3audit1">2-4 fois par mois</label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="r4audit1" value="2-3 fois par semaine">
-              <label class="form-check-label" for="r4audit1">2-3 fois par semaine</label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="r5audit1" value="4 fois ou plus par semaine">
-              <label class="form-check-label" for="r5audit1">4 fois ou plus par semaine</label>
-          </div>
-      </div>
-  </div>
+    <div class="mb-4">
+    <label class="form-label fw-bold">1. À quelle fréquence buvez-vous une boisson contenant de l’alcool ?</label>
+    
+    <div class="btn-group d-flex flex-wrap justify-content-evenly" role="group" aria-label="AUDIT Q1">
+        
+        <input type="radio" class="btn-check" name="q1" id="r1audit1" autocomplete="off" value="Jamais" required>
+        <label class="btn btn-outline-primary m-1 flex-fill text-center rounded" for="r1audit1">Jamais</label>
+        
+        <input type="radio" class="btn-check" name="q1" id="r2audit1" autocomplete="off" value="Mensuel ou moins">
+        <label class="btn btn-outline-primary m-1 flex-fill text-center" for="r2audit1">Mensuel ou moins</label>
+        
+        <input type="radio" class="btn-check" name="q1" id="r3audit1" autocomplete="off" value="2-4 fois par mois">
+        <label class="btn btn-outline-primary m-1 flex-fill text-center" for="r3audit1">2-4 fois par mois</label>
+        
+        <input type="radio" class="btn-check" name="q1" id="r4audit1" autocomplete="off" value="2-3 fois par semaine">
+        <label class="btn btn-outline-primary m-1 flex-fill text-center" for="r4audit1">2-3 fois par semaine</label>
+        
+        <input type="radio" class="btn-check" name="q1" id="r5audit1" autocomplete="off" value="4 fois ou plus par semaine">
+        <label class="btn btn-outline-primary m-1 flex-fill text-center" for="r5audit1">4 fois ou plus par semaine</label>
+        
+    </div>
+    </div>
+
   <!-- Question AUDIT 2 -->
   <div class="mb-4">
       <label class="form-label fw-bold">2. Combien de boissons contenant de l’alcool avez-vous par jour typique lorsque vous buvez ?</label>

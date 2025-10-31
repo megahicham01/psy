@@ -198,242 +198,202 @@ foreach($tests as $col => $info){
         <!-- Form Test Général -->
         <form id="formGeneral" action="test/submit_test.php" method="POST">
           <!-- Question 1 -->
-                <div class="mb-4">
-                    <label class="form-label fw-bold">1. Je me sens triste ou sans espoir la plupart du temps :</label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="r1q1" value="jamais"  required>
-                            <label class="form-check-label" for="r1q1">Pas du tout</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="r2q1" value="quelques jours">
-                            <label class="form-check-label" for="r2q1">Seulement certains jours</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="r3q1" value="souvent">
-                            <label class="form-check-label" for="r3q1">Assez souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="r4q1" value="toujours">
-                            <label class="form-check-label" for="r4q1">Presque tout le temps</label>
-                        </div>
-                    </div>
+               <div class="mb-4">
+                <label class="form-label fw-bold">1. Je me sens triste ou sans espoir la plupart du temps :</label>
+                
+                <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q1">
+                  
+                  <input type="radio" class="btn-check" autocomplete="off" name="q1" id="r1q1" value="jamais" required>
+                  <label class="btn btn-outline-primary m-1" for="r1q1">Pas du tout</label>
+                  
+                  <input type="radio" class="btn-check" name="q1" id="r2q1" autocomplete="off" value="quelques jours">
+                  <label class="btn btn-outline-primary m-1" for="r2q1">Seulement certains jours</label>
+                  
+                  <input type="radio" class="btn-check" name="q1" id="r3q1" autocomplete="off" value="souvent">
+                  <label class="btn btn-outline-primary m-1" for="r3q1">Assez souvent</label>
+                  
+                  <input type="radio" class="btn-check" name="q1" id="r4q1" autocomplete="off" value="toujours">
+                  <label class="btn btn-outline-primary m-1" for="r4q1">Presque tout le temps</label>
+                  
                 </div>
+              </div>
 
                 <!-- Question 2 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">2. J’ai du mal à dormir ou je me sens très somnolent </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="r1q2" value="jamais"  required>
-                            <label class="form-check-label" for="r1q2">Jamais de difficultés</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="r2q2" value="quelques jours">
-                            <label class="form-check-label" for="r2q2">À l’occasion</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="r3q2" value="souvent">
-                            <label class="form-check-label" for="r3q2">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="r4q2" value="toujours">
-                            <label class="form-check-label" for="r4q2">Quasi tout le temps</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q2">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q2" id="r1q2" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q2">Jamais de difficultés</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q2" id="r2q2" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q2">À l’occasion</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q2" id="r3q2" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q2">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q2" id="r4q2" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q2">Quasi tout le temps</label>
                     </div>
                 </div>
 
                                 <!-- Question 3 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">3. Je me sens stressé ou anxieux tout le temps </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="r1q3" value="jamais"  required>
-                            <label class="form-check-label" for="r1q3">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="r2q3" value="quelques jours">
-                            <label class="form-check-label" for="r2q3">Par moments</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="r3q3" value="souvent">
-                            <label class="form-check-label" for="r3q3">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="r4q3" value="toujours">
-                            <label class="form-check-label" for="r4q3">Toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q3">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q3" id="r1q3" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q3">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q3" id="r2q3" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q3">Par moments</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q3" id="r3q3" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q3">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q3" id="r4q3" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q3">Toujours</label>
                     </div>
                 </div>
                                 <!-- Question 4 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">4. Je perds l’intérêt pour les activités que j’aime</label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" id="r1q4" value="jamais"  required>
-                            <label class="form-check-label" for="r1q4">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" id="r2q4" value="quelques jours">
-                            <label class="form-check-label" for="r2q4">Quelques fois</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" id="r3q4" value="souvent">
-                            <label class="form-check-label" for="r3q4">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" id="r4q4" value="toujours">
-                            <label class="form-check-label" for="r4q4">Presque toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q4">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q4" id="r1q4" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q4">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q4" id="r2q4" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q4">Quelques fois</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q4" id="r3q4" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q4">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q4" id="r4q4" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q4">Presque toujours</label>
                     </div>
                 </div>
 
                  <!-- Question 5 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">5. Je me sens fatigué ou manque d’énergie chaque jour </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q5" id="r1q5" value="jamais"  required>
-                            <label class="form-check-label" for="r1q5">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q5" id="r2q5" value="quelques jours">
-                            <label class="form-check-label" for="r2q5">Parfois</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q5" id="r3q5" value="souvent">
-                            <label class="form-check-label" for="r3q5">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q5" id="r4q5" value="toujours">
-                            <label class="form-check-label" for="r4q5">Toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q5">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q5" id="r1q5" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q5">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q5" id="r2q5" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q5">Parfois</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q5" id="r3q5" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q5">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q5" id="r4q5" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q5">Toujours</label>
                     </div>
                 </div>
 
                  <!-- Question 6 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">6. Je trouve difficile de me concentrer sur les tâches quotidiennes </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q6" id="r1q6" value="jamais"  required>
-                            <label class="form-check-label" for="r1q6">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q6" id="r2q6" value="quelques jours">
-                            <label class="form-check-label" for="r2q6">De temps en temps</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q6" id="r3q6" value="souvent">
-                            <label class="form-check-label" for="r3q6">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q6" id="r4q6" value="toujours">
-                            <label class="form-check-label" for="r4q6">Presque toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q6">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q6" id="r1q6" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q6">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q6" id="r2q6" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q6">De temps en temps</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q6" id="r3q6" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q6">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q6" id="r4q6" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q6">Presque toujours</label>
                     </div>
                 </div>
 
                  <!-- Question 7 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">7. Je me sens souvent isolé ou seul </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q7" id="r1q7" value="jamais"  required>
-                            <label class="form-check-label" for="r1q7">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q7" id="r2q7" value="quelques jours">
-                            <label class="form-check-label" for="r2q7">Parfois</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q7" id="r3q7" value="souvent">
-                            <label class="form-check-label" for="r3q7">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q7" id="r4q7" value="toujours">
-                            <label class="form-check-label" for="r4q7">Toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q7">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q7" id="r1q7" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q7">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q7" id="r2q7" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q7">Parfois</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q7" id="r3q7" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q7">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q7" id="r4q7" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q7">Toujours</label>
                     </div>
                 </div>
                  <!-- Question 8 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">8. Je me sens anxieux ou stressé à propos de choses simples ou quotidiennes </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q8" id="r1q8" value="jamais"  required>
-                            <label class="form-check-label" for="r1q8">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q8" id="r2q8" value="quelques jours">
-                            <label class="form-check-label" for="r2q8">Occasionnellement</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q8" id="r3q8" value="souvent">
-                            <label class="form-check-label" for="r3q8">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q8" id="r4q8" value="toujours">
-                            <label class="form-check-label" for="r4q8">Presque toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q8">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q8" id="r1q8" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q8">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q8" id="r2q8" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q8">Occasionnellement</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q8" id="r3q8" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q8">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q8" id="r4q8" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q8">Presque toujours</label>
                     </div>
                 </div>
                  <!-- Question 9 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">9. Je ressens des symptômes physiques liés au stress tels que des maux de tête ou des palpitations </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q9" id="r1q9" value="jamais"  required>
-                            <label class="form-check-label" for="r1q9">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q9" id="r2q9" value="quelques jours">
-                            <label class="form-check-label" for="r2q9">Quelques jours</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q9" id="r3q9" value="souvent">
-                            <label class="form-check-label" for="r3q9">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q9" id="r4q9" value="toujours">
-                            <label class="form-check-label" for="r4q9">Toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q9">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q9" id="r1q9" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q9">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q9" id="r2q9" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q9">Quelques jours</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q9" id="r3q9" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q9">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q9" id="r4q9" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q9">Toujours</label>
                     </div>
                 </div>
                   <!-- Question 10 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">10. J’ai un sentiment de faible estime de soi ou que je suis inférieur aux autres </label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q10" id="r1q10" value="jamais"  required>
-                            <label class="form-check-label" for="r1q10">Jamais</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q10" id="r2q10" value="quelques jours">
-                            <label class="form-check-label" for="r2q10">À l’occasion</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q10" id="r3q10" value="souvent">
-                            <label class="form-check-label" for="r3q10">Souvent</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q10" id="r4q10" value="toujours">
-                            <label class="form-check-label" for="r4q10">Toujours</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q10">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q10" id="r1q10" value="jamais"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1q10">Jamais</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q10" id="r2q10" value="quelques jours">
+                            <label class="btn btn-outline-primary m-1"  for="r2q10">À l’occasion</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q10" id="r3q10" value="souvent">
+                            <label class="btn btn-outline-primary m-1"  for="r3q10">Souvent</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="q10" id="r4q10" value="toujours">
+                            <label class="btn btn-outline-primary m-1"  for="r4q10">Toujours</label>
                     </div>
                 </div>
                 <!-- Question 11 -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">11. Avez-vous déjà eu envie de vous faire du mal ou pensé à vous suicider ?</label>
-                    <div class="d-flex justify-content-evenly flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="suicide_q" id="r1qsuicide_q" value="0"  required>
-                            <label class="form-check-label" for="r1qsuicide_q">Non</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="suicide_q" id="r2qsuicide_q" value="1">
-                            <label class="form-check-label" for="r2qsuicide_q">Oui</label>
-                        </div>
+                    <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q11">
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="suicide_q" id="r1qsuicide_q" value="0"  required>
+                            <label class="btn btn-outline-primary m-1"  for="r1qsuicide_q">Non</label>
+                        
+                            <input type="radio" class="btn-check" autocomplete="off" name="suicide_q" id="r2qsuicide_q" value="1">
+                            <label class="btn btn-outline-primary m-1"  for="r2qsuicide_q">Oui</label>
                         
                     </div>
                 </div> 

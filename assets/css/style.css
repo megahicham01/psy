@@ -1481,8 +1481,12 @@ button[class*=-dark]:hover {
 .form-check-label{
   color: var(--bs-body-color);
 }
-.form-check-label:hover{
+.btn-check:hover{
   color: var(--bs-primary);
+}
+
+.btn-outline-primary:hover{
+  color: var(--bs-primary)!important;
 }
 
 .form-check-input:checked {
