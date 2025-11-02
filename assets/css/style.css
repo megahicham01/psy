@@ -1481,8 +1481,8 @@ button[class*=-dark]:hover {
 .form-check-label{
   color: var(--bs-body-color);
 }
-.btn-check:hover{
-  color: var(--bs-primary);
+.btn-outline-primary{
+  background-color: #f3fcf9;
 }
 
 .btn-outline-primary:hover{

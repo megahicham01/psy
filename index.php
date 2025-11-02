@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Home - SihaNafsia</title>
-    <link rel="shortcut icon" href="assets/images/site_logo/Logo.PNG">
+    <link rel="shortcut icon" href="assets/images/site_logo/Logo_dark.PNG">
     
     <!-- Fraimwork - CSS Include -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -199,7 +199,7 @@ foreach($tests as $col => $info){
         <form id="formGeneral" action="test/submit_test.php" method="POST">
           <!-- Question 1 -->
                <div class="mb-4">
-                <label class="form-label fw-bold">1. Je me sens triste ou sans espoir la plupart du temps :</label>
+                <label class="form-label fw-bold">1. Je me sens triste ou sans espoir la plupart du temps </label>
                 
                 <div class="btn-toolbar d-flex justify-content-evenly" role="toolbar" aria-label="Q1">
                   
@@ -488,25 +488,44 @@ document.addEventListener('submit', function(e){
       });
     }
 });
-// Click handler for header-level "Afficher le test" buttons: open collapse and reveal the hidden form wrapper
+// Click handler for header-level "Afficher le test" buttons: toggle collapse and show/hide the hidden form wrapper
 document.addEventListener('click', function(e){
   // SSRS gating removed: allow accordion buttons to open regardless of C-SSRS completion
-    if(e.target && e.target.classList && e.target.classList.contains('showSubTestBtn')){
-        const targetId = e.target.dataset.target;
-        // open the accordion item (simulate click on the accordion-toggle)
-        const item = e.target.closest('.accordion-item');
-        if(item){
-            const toggle = item.querySelector('.accordion-button');
-            if(toggle && toggle.getAttribute('aria-expanded') === 'false'){
-                try{ toggle.click(); }catch(_){ /* ignore */ }
-            }
-        }
-    if(targetId){
-      const wrapper = document.getElementById(targetId);
-      // Always reveal the wrapper when the header button is clicked
-      if(wrapper){ wrapper.style.display = 'block'; wrapper.scrollIntoView({behavior:'smooth'}); }
+  if(e.target && e.target.classList && e.target.classList.contains('showSubTestBtn')){
+    const targetId = e.target.dataset.target;
+    const item = e.target.closest('.accordion-item');
+    const wrapper = targetId ? document.getElementById(targetId) : null;
+    const toggle = item ? item.querySelector('.accordion-button') : null;
+
+    // If wrapper not found just try to open the accordion and return
+    if(!wrapper){
+      if(toggle && toggle.getAttribute('aria-expanded') === 'false'){
+        try{ toggle.click(); }catch(_){ }
+      }
+      return;
     }
+
+    // Determine current visibility (treat empty string the same as hidden)
+    const isVisible = wrapper.style.display && wrapper.style.display !== 'none';
+
+    if(!isVisible){
+      // Show the wrapper and open the accordion if needed
+      if(toggle && toggle.getAttribute('aria-expanded') === 'false'){
+        try{ toggle.click(); }catch(_){ }
+      }
+      wrapper.style.display = 'block';
+      try{ wrapper.scrollIntoView({behavior:'smooth'}); }catch(_){ }
+      // update button label to indicate second click will hide
+      try{ e.target.textContent = 'Cacher le test'; }catch(_){ }
+    } else {
+      // Hide the wrapper and collapse the accordion if it's open
+      wrapper.style.display = 'none';
+      if(toggle && toggle.getAttribute('aria-expanded') === 'true'){
+        try{ toggle.click(); }catch(_){ }
+      }
+      try{ e.target.textContent = 'Afficher le test'; }catch(_){ }
     }
+  }
 });
 // small helper to show Bootstrap toast
 function showToast(message){
